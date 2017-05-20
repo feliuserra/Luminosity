@@ -8,3 +8,5 @@ jupyter
 numpy
 scipy
 pandas
+tifffile
+matplotlib
