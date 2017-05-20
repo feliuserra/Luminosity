@@ -5,7 +5,7 @@
 #################################################################################
 
 PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-BUCKET = [OPTIONAL] your-bucket-for-syncing-data (do not include 's3://')
+BUCKET = luminosity-thesis
 PROJECT_NAME = Just-Peanuts
 VENV_NAME = venv
 PYTHON_INTERPRETER = python3
@@ -26,7 +26,7 @@ requirements: test_environment
 
 ## Make Dataset
 data: requirements
-	$(PYTHON_INTERPRETER) src/data/make_dataset.py
+	sh ./src/data/make_dataset.sh
 
 ## Delete all compiled Python files
 clean:
