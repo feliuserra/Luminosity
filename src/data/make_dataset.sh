@@ -1,3 +1,4 @@
+mkdir -p data/external/Version_4_DMSP-OLS_Nighttime_Lights_Time_Series
 cd data/external/Version_4_DMSP-OLS_Nighttime_Lights_Time_Series
 echo $(pwd)
 for IMAGE in F101992 F152002 F182013
