@@ -33,6 +33,11 @@ data: requirements
 	sh ./src/data/make_dataset.sh
 	$(PYTHON_INTERPRETER) ./src/data/compress_dataset.py
 
+## Create Features from Data
+features: #data
+	$(PYTHON_INTERPRETER) ./src/features/make_sections.py
+	$(PYTHON_INTERPRETER) ./src/features/build_features.py
+
 ## Delete all compiled Python files
 clean:
 	find . -name "*.pyc" -exec rm {} \;
