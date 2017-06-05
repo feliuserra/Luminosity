@@ -35,7 +35,7 @@ data: requirements
 
 ## Create Features from Data
 features: #data
-	$(PYTHON_INTERPRETER) ./src/features/make_sections.py
+	$(PYTHON_INTERPRETER) ./src/features/create_sections.py
 	$(PYTHON_INTERPRETER) ./src/features/build_features.py
 
 ## Delete all compiled Python files
