@@ -49,7 +49,8 @@ for i, img_pxl in enumerate(sub_img_pxl):
     ))
 
 sections['size'] = 300
-sections[sections['mean_luminosity'] > 0].to_csv(
+cutoff = np.percentile(sections['mean_luminosity'], 85)
+sections[sections['mean_luminosity'] > cutoff].to_csv(
     'data/interim/' +
     'Version_4_DMSP-OLS_Nighttime_Lights_Time_Series/sections.csv',
     index=False)
