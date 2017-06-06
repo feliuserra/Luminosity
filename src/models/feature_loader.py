@@ -82,6 +82,24 @@ class FeatureTensorLoader(object):
         targets = np.stack(targets)
         return features, targets
 
+    def batch_iterator(self):
+        counter = 0
+        while counter < len(self.target_files):
+            counter += 1
+            yield self.load_batch(counter)
+
+    def batch_x_iterator(self):
+        counter = 0
+        while counter < len(self.target_files):
+            counter += 1
+            yield self.load_batch(counter)[0]
+
+    def batch_y_iterator(self):
+        counter = 0
+        while counter < len(self.target_files):
+            counter += 1
+            yield self.load_batch(counter)[1]
+
     def assess_size(self, features, target, target_file):
         if not features.shape == (self.img_shape[0],
                                   self.img_shape[1],
