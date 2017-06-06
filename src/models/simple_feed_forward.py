@@ -4,8 +4,8 @@ from feature_loader import FeatureTensorLoader, WrongImageSize
 
 
 learning_rate = 0.001
-max_iter = 10
-batch_size = 2
+max_iter = 15000
+batch_size = 20
 display_batch = 5
 n = m = 300
 lags = 3
@@ -20,28 +20,32 @@ def init_weights(shape):
     return tf.Variable(weights)
 
 
-X = tf.placeholder(tf.float32, [n, m, lags])
-Y = tf.placeholder(tf.float32, [n, m])
+X = tf.placeholder(tf.float32, [None, n, m, lags])
+Y = tf.placeholder(tf.float32, [None, n, m])
 
 
 def create_network(features):
     input_layer = tf.reshape(features,
-                             [-1, n, m, lags])
+                             [batch_size, n, m, lags])
     first_layer = tf.layers.dense(inputs=input_layer,
-                                  units=n*m,
+                                  units=lags,
                                   activation=tf.nn.relu,
                                   name='first_layer')
     second_layer = tf.layers.dense(inputs=first_layer,
-                                   units=n*m,
+                                   units=9,
                                    activation=tf.nn.relu,
                                    name='second_layer')
-    output_layer = tf.reshape(tf.nn.sigmoid(second_layer, name='output'),
-                              [n, m])
+    third_layer = tf.layers.dense(inputs=second_layer,
+                                  units=1,
+                                  activation=tf.nn.relu,
+                                  name='third_layer')
+    output_layer = tf.reshape(tf.nn.sigmoid(third_layer, name='output'),
+                              [batch_size, n, m])
     return output_layer
 
 
 network = create_network(X)
-square_errors = tf.nn.l2_loss(t=network)
+square_errors = tf.squared_difference(network, Y)
 cost = tf.reduce_mean(tf.cast(square_errors, tf.float32))
 optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 init = tf.global_variables_initializer()
@@ -51,9 +55,9 @@ with tf.Session() as sess:
     saver = tf.train.Saver()
     sess.run(init)
     batch = 1
-    while batch < max_iter:
+    while batch * batch_size < max_iter:
         try:
-            batch_features, batch_targets = feature_loader.load(batch)
+            batch_features, batch_targets = feature_loader.load_batch(batch)
             sess.run(optimizer, feed_dict={X: batch_features,
                                            Y: batch_targets})
             if batch % display_batch == 0:
@@ -64,13 +68,13 @@ with tf.Session() as sess:
                            'models/simple_feed_forward/' +
                            'simple_feed_forward_session')
                 print("Batch = {}, Loss = {:.2f}".format(batch, loss))
-        except WrongImageSize:
-            print('Image was not consistent with required dimension')
+        except WrongImageSize as e:
+            print(e)
             pass
 
         batch += 1
     print("Optimization Finished!")
-    test_features, test_targets = feature_loader.load(max(max_iter, batch))
+    test_features, test_targets = feature_loader.load_batch(max_iter)
     np.save('models/simple_feed_forward/' +
             'simple_feed_forward_prediction.npy',
-            np.array(network.eval(feed_dict={X: test_features}).tolist()))
+            np.array(network.eval(feed_dict={X: [test_features]}).tolist()))

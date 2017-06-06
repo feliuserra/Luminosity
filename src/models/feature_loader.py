@@ -1,33 +1,34 @@
 import os
 import numpy as np
+import random as rd
 
 DEF_SRC_PATH = 'data/interim/' +\
     'Version_4_DMSP-OLS_Nighttime_Lights_Time_Series/'
 START_YEAR = 1992
-END_YEAR = 1999
+END_YEAR = 2005
 
 
 class LaggedFeatureNotFound(Exception):
-    def __init___(self, target):
-        Exception.__init__(self,
-                           "Couldn't find all the features for target {}"
-                           .format(target))
-        self.target = target
+    def __init___(self, target_file):
+        super().__init__(
+            self,
+            "Couldn't find all the features for target file {}"
+            .format(target_file))
 
 
 class WrongImageSize(Exception):
-    def __init___(self, target):
-        Exception.__init__(self,
-                           "Some file had the wrong dimensions for target {}"
-                           .format(target))
-        self.target = target
+    def __init___(self, target_file):
+        super().__init__(
+            self,
+            "Some file had the wrong dimensions for target file {}"
+            .format(target_file))
 
 
 class FeatureTensorLoader(object):
 
     def __init__(self, lags=3, batch_size=100,
                  check_integrity=True, cv=False,
-                 img_shape=(300, 300),
+                 img_shape=(300, 300), shuffle=True,
                  SRC_PATH=DEF_SRC_PATH):
         self.lags = lags
         self.batch_size = batch_size
@@ -40,6 +41,8 @@ class FeatureTensorLoader(object):
         self.target_files = [f for f in files
                              if int(f[:4]) > START_YEAR + lags
                              and int(f[:4]) < END_YEAR]
+        if shuffle is True:
+            rd.shuffle(self.target_files)
         self.features = []
         if check_integrity is True:
             for t in self.target_files:
@@ -48,6 +51,9 @@ class FeatureTensorLoader(object):
                         self.src + str(int(t[:4]) - l) + t[4:])
                     if not found:
                         raise LaggedFeatureNotFound(t)
+
+        print('Feature loader initialized with {} observations'
+              .format(len(self.target_files)))
 
     def load(self, offset):
         target_file = self.target_files[offset]
