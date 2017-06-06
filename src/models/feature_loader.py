@@ -4,7 +4,7 @@ import numpy as np
 DEF_SRC_PATH = 'data/interim/' +\
     'Version_4_DMSP-OLS_Nighttime_Lights_Time_Series/'
 START_YEAR = 1992
-END_YEAR = 2000
+END_YEAR = 1999
 
 
 class LaggedFeatureNotFound(Exception):
@@ -15,13 +15,23 @@ class LaggedFeatureNotFound(Exception):
         self.target = target
 
 
+class WrongImageSize(Exception):
+    def __init___(self, target):
+        Exception.__init__(self,
+                           "Some file had the wrong dimensions for target {}"
+                           .format(target))
+        self.target = target
+
+
 class FeatureTensorLoader(object):
 
     def __init__(self, lags=3, batch_size=100,
                  check_integrity=True, cv=False,
+                 img_shape=(300, 300),
                  SRC_PATH=DEF_SRC_PATH):
         self.lags = lags
         self.batch_size = batch_size
+        self.img_shape = img_shape
         self.cv = cv
         self.src = SRC_PATH
         files = [f for f
@@ -49,7 +59,8 @@ class FeatureTensorLoader(object):
                 target_file[4:])['arr_0']
             feature.append(lagged_feature)
 
-        feature = np.stack(feature)
+        feature = np.stack(feature, axis=2)
+        self.assess_size(feature, target, target_file)
         return feature, target
 
     def load_batch(self, batch):
@@ -61,4 +72,14 @@ class FeatureTensorLoader(object):
             features.append(feature)
             targets.append(target)
 
+        features = np.stack(features)
+        targets = np.stack(targets)
         return features, targets
+
+    def assess_size(self, features, target, target_file):
+        if not features.shape == (self.img_shape[0],
+                                  self.img_shape[1],
+                                  self.lags):
+            raise WrongImageSize(target_file)
+        if not target.shape == (self.img_shape):
+            raise WrongImageSize(target_file)
