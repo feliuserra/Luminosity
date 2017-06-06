@@ -5,7 +5,7 @@ import random as rd
 DEF_SRC_PATH = 'data/interim/' +\
     'Version_4_DMSP-OLS_Nighttime_Lights_Time_Series/'
 START_YEAR = 1992
-END_YEAR = 2005
+END_YEAR = 2010
 
 
 class LaggedFeatureNotFound(Exception):

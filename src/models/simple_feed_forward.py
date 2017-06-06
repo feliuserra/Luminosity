@@ -4,7 +4,7 @@ from feature_loader import FeatureTensorLoader, WrongImageSize
 
 
 learning_rate = 0.001
-max_iter = 15000
+max_iter = 40000
 batch_size = 20
 display_batch = 5
 n = m = 300
@@ -28,18 +28,22 @@ def create_network(features):
     input_layer = tf.reshape(features,
                              [batch_size, n, m, lags])
     first_layer = tf.layers.dense(inputs=input_layer,
-                                  units=lags,
+                                  units=n,
                                   activation=tf.nn.relu,
                                   name='first_layer')
     second_layer = tf.layers.dense(inputs=first_layer,
-                                   units=9,
+                                   units=m,
                                    activation=tf.nn.relu,
                                    name='second_layer')
     third_layer = tf.layers.dense(inputs=second_layer,
-                                  units=1,
+                                  units=90,
                                   activation=tf.nn.relu,
                                   name='third_layer')
-    output_layer = tf.reshape(tf.nn.sigmoid(third_layer, name='output'),
+    fourth_layer = tf.layers.dense(inputs=third_layer,
+                                   units=1,
+                                   activation=tf.nn.relu,
+                                   name='fourth_layer')
+    output_layer = tf.reshape(tf.nn.sigmoid(fourth_layer, name='output'),
                               [batch_size, n, m])
     return output_layer
 
@@ -70,6 +74,10 @@ with tf.Session() as sess:
                 print("Batch = {}, Loss = {:.2f}".format(batch, loss))
         except WrongImageSize as e:
             print(e)
+            pass
+        except IndexError as e:
+            print(e)
+            batch = max_iter
             pass
 
         batch += 1
