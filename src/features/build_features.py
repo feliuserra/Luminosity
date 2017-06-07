@@ -2,8 +2,6 @@ import os
 import numpy as np
 import pandas as pd
 
-T = 3
-
 rawpath = 'data/raw/' +\
     'Version_4_DMSP-OLS_Nighttime_Lights_Time_Series/'
 interimpath = 'data/interim/' +\
