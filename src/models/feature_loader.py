@@ -55,7 +55,9 @@ class FeatureTensorLoader(object):
         print('Feature loader initialized with {} observations'
               .format(len(self.target_files)))
 
-    def load(self, offset):
+    def load(self, offset=None):
+        if offset is None:
+            offset = np.random.randint(0, len(self.target_files))
         target_file = self.target_files[offset]
         target = np.load(self.src + target_file)['arr_0']
         feature = []
@@ -66,12 +68,20 @@ class FeatureTensorLoader(object):
             feature.append(lagged_feature)
 
         feature = np.stack(feature, axis=2)
-        self.assess_size(feature, target, target_file)
+        try:
+            self.assess_size(feature, target, target_file)
+        except WrongImageSize as e:
+            print(e)
+            feature, target = self.load(offset=offset+1)  # >゜)))><
+            pass
         return feature, target
 
-    def load_batch(self, batch):
+    def load_batch(self, batch=None):
         features = []
         targets = []
+        if batch is None:
+            batch = np.random.randint(
+                0, len(self.target_files) / self.batch_size)
         for i in range(batch * self.batch_size,
                        (batch + 1) * self.batch_size):
             feature, target = self.load(i)
