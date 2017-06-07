@@ -3,9 +3,9 @@ import tensorflow as tf
 from feature_loader import FeatureTensorLoader, WrongImageSize
 
 
-learning_rate = 0.001
-max_iter = 40000
-batch_size = 20
+learning_rate = 0.01
+max_iter = 100000
+batch_size = 50
 display_batch = 5
 n = m = 300
 lags = 3
@@ -28,15 +28,15 @@ def create_network(features):
     input_layer = tf.reshape(features,
                              [batch_size, n, m, lags])
     first_layer = tf.layers.dense(inputs=input_layer,
-                                  units=n,
-                                  activation=tf.nn.relu,
+                                  units=9,
+                                  activation=tf.nn.sigmoid,
                                   name='first_layer')
     second_layer = tf.layers.dense(inputs=first_layer,
-                                   units=m,
-                                   activation=tf.nn.relu,
+                                   units=3,
+                                   activation=tf.nn.sigmoid,
                                    name='second_layer')
     third_layer = tf.layers.dense(inputs=second_layer,
-                                  units=90,
+                                  units=3,
                                   activation=tf.nn.relu,
                                   name='third_layer')
     fourth_layer = tf.layers.dense(inputs=third_layer,
@@ -55,13 +55,15 @@ optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 init = tf.global_variables_initializer()
 
 
+log_path = 'models/simple_feed_forward/log'
+open(log_path, 'w').close()
 with tf.Session() as sess:
     saver = tf.train.Saver()
     sess.run(init)
     batch = 1
     while batch * batch_size < max_iter:
         try:
-            batch_features, batch_targets = feature_loader.load_batch(batch)
+            batch_features, batch_targets = feature_loader.load_batch()
             sess.run(optimizer, feed_dict={X: batch_features,
                                            Y: batch_targets})
             if batch % display_batch == 0:
@@ -72,6 +74,7 @@ with tf.Session() as sess:
                            'models/simple_feed_forward/' +
                            'simple_feed_forward_session')
                 print("Batch = {}, Loss = {:.2f}".format(batch, loss))
+                with open(log_path, 'a') as log: print(loss, file=log)
         except WrongImageSize as e:
             print(e)
             pass
@@ -82,7 +85,3 @@ with tf.Session() as sess:
 
         batch += 1
     print("Optimization Finished!")
-    test_features, test_targets = feature_loader.load_batch(max_iter)
-    np.save('models/simple_feed_forward/' +
-            'simple_feed_forward_prediction.npy',
-            np.array(network.eval(feed_dict={X: [test_features]}).tolist()))
