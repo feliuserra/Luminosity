@@ -4,8 +4,8 @@ from lagged_feature_loader import LaggedFeatureLoader, WrongImageSize
 
 
 learning_rate = 0.005
-max_iter = 400000
-batch_size = 50
+max_iter = 400000 * 10
+batch_size = 100
 display_batch = 5
 n = m = 200
 lags = 3
