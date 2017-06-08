@@ -1,3 +1,4 @@
+import copy
 import numpy as np
 from glob import glob
 from geo_helpers import as_pixels
@@ -15,7 +16,7 @@ class SectionSeriesLoader(object):
     def __init__(self, start_year=1993, end_year=2013,
                  img_shape=(300, 300), check_integrity=True,
                  SRC_PATH=DEF_SRC_PATH):
-        self.available_files = glob(SRC_PATH)
+        self.available_files = sorted(glob(SRC_PATH))
         self.img_extent = np.round((img_shape[0]/2, img_shape[1]/2))\
             .astype(int)
         if check_integrity is True:
@@ -42,11 +43,30 @@ class SectionSeriesLoader(object):
         for f in self.available_files:
             print('Loading file {}'.format(f))
             mapped_raster = np.load(f, mmap_mode='r')['arr_0']
-            stack.append(mapped_raster[
+            stack.append(copy.deepcopy(mapped_raster[
                 loc[0]-self.img_extent[0]:loc[0]+self.img_extent[0],
                 loc[1]-self.img_extent[1]:loc[1]+self.img_extent[1]
-            ])
+            ]))
             del mapped_raster
 
         series = np.stack(stack)
+        return(series)
+
+    def load_multiple(self, target_coords_list):
+        locs = [as_pixels(target_coords=tc) for tc in target_coords_list]
+        stack = [[] * len(locs)]
+        series = [] * len(locs)
+        for f in self.available_files:
+            print('Loading file {}'.format(f))
+            mapped_raster = np.load(f, mmap_mode='r')['arr_0']
+            for i, loc in enumerate(locs):
+                stack[i].append(copy.deepcopy(mapped_raster[
+                    loc[0]-self.img_extent[0]:loc[0]+self.img_extent[0],
+                    loc[1]-self.img_extent[1]:loc[1]+self.img_extent[1]
+                ]))
+            del mapped_raster
+
+        for i, loc in enumerate(locs):
+            series[i] = np.stack(stack[i])
+
         return(series)
