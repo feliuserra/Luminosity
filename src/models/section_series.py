@@ -55,7 +55,7 @@ class SectionSeriesLoader(object):
     def load_multiple(self, target_coords_list):
         locs = [as_pixels(target_coords=tc) for tc in target_coords_list]
         stack = [[] * len(locs)]
-        series = [] * len(locs)
+        series = [[] * len(locs)]
         for f in self.available_files:
             print('Loading file {}'.format(f))
             mapped_raster = np.load(f, mmap_mode='r')['arr_0']

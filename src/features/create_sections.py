@@ -10,8 +10,8 @@ src_img = np.load(src_img_path)['arr_0']
 
 
 def convolve_coordinates(image,
-                         step_size=(150, 150),
-                         sub_image_shape=(300, 300)):
+                         step_size=(75, 75),
+                         sub_image_shape=(200, 200)):
     passes = [
         int(image.shape[i]/step_size[i]-sub_image_shape[i]/step_size[i]+1)
         for i in range(2)
@@ -48,7 +48,7 @@ for i, img_pxl in enumerate(sub_img_pxl):
         columns=['f', 'mean_luminosity', 'y_off', 'x_off']
     ))
 
-sections['size'] = 300
+sections['size'] = 200
 cutoff = np.percentile(sections['mean_luminosity'], 85)
 sections[sections['mean_luminosity'] > cutoff].to_csv(
     'data/interim/' +
