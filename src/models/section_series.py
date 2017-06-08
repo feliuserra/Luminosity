@@ -14,7 +14,7 @@ class SectionIntegrityException(Exception):
 class SectionSeriesLoader(object):
 
     def __init__(self, start_year=1993, end_year=2013,
-                 img_shape=(300, 300), check_integrity=True,
+                 img_shape=(200, 200), check_integrity=True,
                  SRC_PATH=DEF_SRC_PATH):
         self.available_files = sorted(glob(SRC_PATH))
         self.img_extent = np.round((img_shape[0]/2, img_shape[1]/2))\
@@ -54,9 +54,11 @@ class SectionSeriesLoader(object):
 
     def load_multiple(self, target_coords_list):
         locs = [as_pixels(target_coords=tc) for tc in target_coords_list]
-        stack = [[] * len(locs)]
-        series = [[] * len(locs)]
-        for f in self.available_files:
+        stack = [[]] * len(locs)
+        series = [None] * len(locs)
+        print(stack)
+        print(series)
+        for f in self.available_files[:2]:
             print('Loading file {}'.format(f))
             mapped_raster = np.load(f, mmap_mode='r')['arr_0']
             for i, loc in enumerate(locs):

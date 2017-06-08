@@ -1,16 +1,16 @@
 import numpy as np
 import tensorflow as tf
-from feature_loader import FeatureTensorLoader, WrongImageSize
+from lagged_feature_loader import LaggedFeatureLoader, WrongImageSize
 
 
-learning_rate = 0.01
-max_iter = 100000
+learning_rate = 0.005
+max_iter = 400000
 batch_size = 50
 display_batch = 5
-n = m = 300
+n = m = 200
 lags = 3
 
-feature_loader = FeatureTensorLoader(lags=lags,
+feature_loader = LaggedFeatureLoader(lags=lags, img_shape=(n, m),
                                      check_integrity=True,
                                      batch_size=batch_size)
 
@@ -28,22 +28,14 @@ def create_network(features):
     input_layer = tf.reshape(features,
                              [batch_size, n, m, lags])
     first_layer = tf.layers.dense(inputs=input_layer,
-                                  units=9,
+                                  units=3,
                                   activation=tf.nn.sigmoid,
                                   name='first_layer')
     second_layer = tf.layers.dense(inputs=first_layer,
-                                   units=3,
-                                   activation=tf.nn.sigmoid,
-                                   name='second_layer')
-    third_layer = tf.layers.dense(inputs=second_layer,
-                                  units=3,
-                                  activation=tf.nn.relu,
-                                  name='third_layer')
-    fourth_layer = tf.layers.dense(inputs=third_layer,
                                    units=1,
                                    activation=tf.nn.relu,
-                                   name='fourth_layer')
-    output_layer = tf.reshape(tf.nn.sigmoid(fourth_layer, name='output'),
+                                   name='second_layer')
+    output_layer = tf.reshape(tf.nn.sigmoid(second_layer, name='output'),
                               [batch_size, n, m])
     return output_layer
 
