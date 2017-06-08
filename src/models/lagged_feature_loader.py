@@ -24,7 +24,7 @@ class WrongImageSize(Exception):
             .format(target_file))
 
 
-class FeatureTensorLoader(object):
+class LaggedFeatureLoader(object):
 
     def __init__(self, lags=3, batch_size=100,
                  check_integrity=True, cv=False,
