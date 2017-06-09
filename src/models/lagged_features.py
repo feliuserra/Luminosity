@@ -4,8 +4,6 @@ import random as rd
 
 DEF_SRC_PATH = 'data/interim/' +\
     'Version_4_DMSP-OLS_Nighttime_Lights_Time_Series/'
-START_YEAR = 1992
-END_YEAR = 2009
 
 
 class LaggedFeatureNotFound(Exception):
@@ -29,8 +27,11 @@ class LaggedFeatureLoader(object):
     def __init__(self, lags=3, batch_size=100,
                  check_integrity=True, cv=False,
                  img_shape=(300, 300), shuffle=True,
+                 start_year=1992, end_year=2013,
                  SRC_PATH=DEF_SRC_PATH):
         self.lags = lags
+        self.start_year = start_year
+        self.end_year = end_year
         self.batch_size = batch_size
         self.img_shape = img_shape
         self.cv = cv
@@ -39,8 +40,8 @@ class LaggedFeatureLoader(object):
                  in os.listdir(self.src)
                  if 'sections' not in f]
         self.target_files = [f for f in files
-                             if int(f[:4]) > START_YEAR + lags
-                             and int(f[:4]) < END_YEAR]
+                             if int(f[:4]) > self.start_year + lags
+                             and int(f[:4]) < self.end_year]
         if shuffle is True:
             rd.shuffle(self.target_files)
         self.features = []
