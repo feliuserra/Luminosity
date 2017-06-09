@@ -1,4 +1,3 @@
-import numpy as np
 import tensorflow as tf
 from lagged_feature_loader import LaggedFeatureLoader, WrongImageSize
 
@@ -31,12 +30,10 @@ def create_network(features):
                                   units=3,
                                   activation=tf.nn.sigmoid,
                                   name='first_layer')
-    second_layer = tf.layers.dense(inputs=first_layer,
+    output_layer = tf.layers.dense(inputs=first_layer,
                                    units=1,
                                    activation=tf.nn.relu,
-                                   name='second_layer')
-    output_layer = tf.reshape(tf.nn.sigmoid(second_layer, name='output'),
-                              [batch_size, n, m])
+                                   name='output_layer')
     return output_layer
 
 
@@ -66,7 +63,8 @@ with tf.Session() as sess:
                            'models/simple_feed_forward/' +
                            'simple_feed_forward_session')
                 print("Batch = {}, Loss = {:.2f}".format(batch, loss))
-                with open(log_path, 'a') as log: print(loss, file=log)
+                with open(log_path, 'a') as log:
+                    print(loss, file=log)
         except WrongImageSize as e:
             print(e)
             pass
