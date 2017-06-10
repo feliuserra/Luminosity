@@ -63,10 +63,14 @@ class SectionSeriesLoader(object):
             print('Loading file {}'.format(f))
             mapped_raster = np.load(f, mmap_mode='r')['arr_0']
             for l_i, loc in enumerate(locs):
-                series[l_i,f_i,:,:] = copy.deepcopy(mapped_raster[
-                    loc[0]-self.img_extent[0]:loc[0]+self.img_extent[0],
-                    loc[1]-self.img_extent[1]:loc[1]+self.img_extent[1]
-                ])
+                try:
+                    series[l_i, f_i, :, :] = copy.deepcopy(mapped_raster[
+                        loc[0]-self.img_extent[0]:loc[0]+self.img_extent[0],
+                        loc[1]-self.img_extent[1]:loc[1]+self.img_extent[1]
+                    ])
+                except ValueError as e:
+                    print(target_coords_list[l_i])
+                    raise e
 
             del mapped_raster
 
