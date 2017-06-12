@@ -7,16 +7,16 @@ max_iter = 400000 * 10
 batch_size = 100
 display_batch = 1
 n = m = 200
-lags = 3
+lags = 6
 
 feature_loader = LaggedFeatureLoader(lags=lags, img_shape=(n, m),
                                      check_integrity=True,
-                                     start_year=1992, end_year=2002,
+                                     start_year=1992, end_year=2010,
                                      batch_size=batch_size)
 
 
 def init_weights(shape):
-    weights = tf.random_normal(shape, stddev=0.1)
+    weights = tf.random_normal(shape, stddev=0.2)
     return tf.Variable(weights)
 
 

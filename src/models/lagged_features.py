@@ -24,7 +24,7 @@ class WrongImageSize(Exception):
 
 class LaggedFeatureLoader(object):
 
-    def __init__(self, lags=3, batch_size=100,
+    def __init__(self, lags=6, batch_size=100,
                  check_integrity=True, cv=False,
                  img_shape=(300, 300), shuffle=True,
                  start_year=1992, end_year=2013,
