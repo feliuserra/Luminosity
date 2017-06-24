@@ -18,13 +18,14 @@ class SectionSeriesLoader(object):
                  SRC_PATH=DEF_SRC_PATH):
         self.available_files = sorted(glob(SRC_PATH))
         self.selected_files = self.available_files[start_year
-                                                   - 1993:end_year
-                                                   - 1993 + 1]
+                                                   - 1992:end_year
+                                                   - 1992 + 1]
         self.img_shape = img_shape
         self.end_year = end_year
         self.img_extent = np.round((img_shape[0]/2, img_shape[1]/2))\
             .astype(int)
         if check_integrity is True:
+            print(self.selected_files)
             if str(start_year) not in self.selected_files[0]:
                 raise SectionIntegrityException(
                     "First available file doesn't coincide with start year {}"
@@ -89,6 +90,28 @@ class SectionSeriesLoader(object):
                         loc[0]-self.img_extent[0]:loc[0]+self.img_extent[0],
                         loc[1]-self.img_extent[1]:loc[1]+self.img_extent[1]
                     ].mean()
+                except ValueError as e:
+                    print(target_coords_list[l_i])
+                    if fill_empty is False:
+                        raise e
+                    else:
+                        series[l_i, f_i] = 0
+
+            del mapped_raster
+
+    def load_multiple_sums(self, target_coords_list, fill_empty=True):
+        locs = [as_pixels(target_coords=tc) for tc in target_coords_list]
+        series = np.empty((len(target_coords_list),
+                           len(self.selected_files)))
+        for f_i, f in enumerate(self.selected_files):
+            print('Loading file {}'.format(f))
+            mapped_raster = np.load(f, mmap_mode='r')['arr_0']
+            for l_i, loc in enumerate(locs):
+                try:
+                    series[l_i, f_i] = mapped_raster[
+                        loc[0]-self.img_extent[0]:loc[0]+self.img_extent[0],
+                        loc[1]-self.img_extent[1]:loc[1]+self.img_extent[1]
+                    ].sum()
                 except ValueError as e:
                     print(target_coords_list[l_i])
                     if fill_empty is False:
