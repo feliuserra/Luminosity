@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex thesis"] 1498525831 "thesis.aux" "thesis.bbl" "thesis" 1498525831
+["bibtex thesis"] 1498528083 "thesis.aux" "thesis.bbl" "thesis" 1498528084
   "references.bib" 0 -1 0 ""
-  "thesis.aux" 1498525831 581 706fdcc89bd7bffb12e1f56430740775 ""
+  "thesis.aux" 1498528084 1579 66ed76e475fb6bac2f04a59d21552641 ""
   (generated)
-  "thesis.blg"
   "thesis.bbl"
-["xdvipdfmx"] 1498525831 "thesis.xdv" "thesis.pdf" "thesis" 1498525831
-  "thesis.xdv" 1498525831 2588 34d28649e83de3fdfdd7a4542429545e "xelatex"
+  "thesis.blg"
+["xdvipdfmx"] 1498528084 "thesis.xdv" "thesis.pdf" "thesis" 1498528084
+  "thesis.xdv" 1498528084 8368 49cd486abb284f8d921bb368d63e273c "xelatex"
   (generated)
   "thesis.pdf"
-["xelatex"] 1498525831 "thesis.tex" "thesis.xdv" "thesis" 1498525831
+["xelatex"] 1498528083 "thesis.tex" "thesis.xdv" "thesis" 1498528084
   "/usr/local/texlive/2016basic/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/local/texlive/2016basic/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
   "/usr/local/texlive/2016basic/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -21,25 +21,27 @@
   "/usr/local/texlive/2016basic/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/local/texlive/2016basic/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/local/texlive/2016basic/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
+  "/usr/local/texlive/2016basic/texmf-dist/fonts/tfm/public/cm/cmti12.tfm" 1136768653 1484 ed72f8f5cf654cda15ecc8e32bfcbee5 ""
   "/usr/local/texlive/2016basic/texmf-dist/tex/latex/base/article.cls" 1459635588 19821 310da678527a7dfe2a02c88af38079b7 ""
   "/usr/local/texlive/2016basic/texmf-dist/tex/latex/base/fleqn.clo" 1454284088 4752 e6541bbabe8ceb1dafbe3f372f1cb368 ""
   "/usr/local/texlive/2016basic/texmf-dist/tex/latex/base/leqno.clo" 1454284088 1959 90fcad9558776788e5cd1f9f3c52e2f7 ""
+  "/usr/local/texlive/2016basic/texmf-dist/tex/latex/base/omscmr.fd" 1454284088 2256 80ce1168fb4ce6a85583a9cf8972c013 ""
   "/usr/local/texlive/2016basic/texmf-dist/tex/latex/base/size12.clo" 1459635588 8303 1d67e16498f00f63da792fab169302fc ""
   "/usr/local/texlive/2016basic/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
   "/usr/local/texlive/2016basic/texmf-var/web2c/xetex/xelatex.fmt" 1493552942 3080674 3b76bb9babe199828444ca7960bf614d ""
   "/usr/local/texlive/2016basic/texmf.cnf" 1463981856 628 02e65753891144204a0c89f7fa5761b2 ""
   "preamble.tex" 0 -1 0 ""
-  "thesis.aux" 1498525831 581 706fdcc89bd7bffb12e1f56430740775 ""
+  "thesis.aux" 1498528084 1579 66ed76e475fb6bac2f04a59d21552641 ""
   "thesis.bbl" 0 -1 0 "bibtex thesis"
-  "thesis.lof" 1498525831 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "thesis.lot" 1498525831 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "thesis.tex" 1498525830 692 27c0398a3d70e4841dbc7ad6f7e2e274 ""
-  "thesis.toc" 1498525831 408 7db2ddfbb2432e2de3066de1b808a023 ""
+  "thesis.lof" 1498528084 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "thesis.lot" 1498528084 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "thesis.tex" 1498528083 2963 81a54a7d2058d903c27298372f5aeb4a ""
+  "thesis.toc" 1498528084 1208 ad26e98c8af626624b12f397d1dd0c3f ""
   (generated)
+  "thesis.aux"
   "thesis.lot"
   "thesis.lof"
+  "preamble.aux"
+  "thesis.xdv"
   "thesis.log"
   "thesis.toc"
-  "thesis.xdv"
-  "preamble.aux"
-  "thesis.aux"
