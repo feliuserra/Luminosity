@@ -5,15 +5,18 @@
 \contentsline {subsubsection}{\numberline {1.2.2}Natural Disaster Economics}{3}
 \contentsline {section}{\numberline {2}Data}{3}
 \contentsline {subsection}{\numberline {2.1}Data Description}{3}
-\contentsline {subsection}{\numberline {2.2}Data Preprocessing}{3}
+\contentsline {subsection}{\numberline {2.2}Data Preprocessing}{4}
+\contentsline {subsubsection}{\numberline {2.2.1}QGIS}{4}
+\contentsline {subsubsection}{\numberline {2.2.2}Python Architecture}{4}
+\contentsline {subsubsection}{\numberline {2.2.3}Denoising}{4}
 \contentsline {section}{\numberline {3}Modelling}{4}
 \contentsline {subsection}{\numberline {3.1}Disaster Impact Models}{4}
-\contentsline {subsection}{\numberline {3.2}Panel Model}{4}
-\contentsline {subsubsection}{\numberline {3.2.1}Region-based Panel}{4}
-\contentsline {subsubsection}{\numberline {3.2.2}Section-based Panel}{4}
-\contentsline {subsubsection}{\numberline {3.2.3}Dynamic Panel}{4}
-\contentsline {section}{\numberline {4}Results}{4}
-\contentsline {subsection}{\numberline {4.1}Case Analysis}{4}
-\contentsline {subsection}{\numberline {4.2}Modelling Results}{4}
-\contentsline {subsection}{\numberline {4.3}Conclusions}{4}
-\contentsline {subsection}{\numberline {4.4}Outlook}{5}
+\contentsline {subsection}{\numberline {3.2}Panel Model}{5}
+\contentsline {subsubsection}{\numberline {3.2.1}Region-based Panel}{5}
+\contentsline {subsubsection}{\numberline {3.2.2}Section-based Panel}{5}
+\contentsline {subsubsection}{\numberline {3.2.3}Dynamic Panel}{5}
+\contentsline {section}{\numberline {4}Results}{5}
+\contentsline {subsection}{\numberline {4.1}Case Analysis}{5}
+\contentsline {subsection}{\numberline {4.2}Modelling Results}{5}
+\contentsline {subsection}{\numberline {4.3}Conclusions}{6}
+\contentsline {subsection}{\numberline {4.4}Outlook}{6}
