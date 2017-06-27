@@ -1,23 +1,22 @@
 \documentclass[12pt,fleqn,leqno,letterpaper]{article}
+<<<<<<< HEAD
 
 \usepackage{gensymb}
 
 \include{preamble}
+=======
+\usepackage{graphicx}
+\graphicspath{{../figures/}}
+>>>>>>> 0423ebdf4abd9953aacdc14fc707e3feb67a3568
 
 \title{Luminosity}
-\author{
-  Cameron, M.
-  \and
-  Rosales, V.
-  \and
-  Westermann, J.P.
-}
+\author{Cameron, M. \and Rosales, V. \and Westermann, J.P.}
+
 \date{July 30, 2017}
 
 \begin{document}
 
 \maketitle
-
 \newpage
 \tableofcontents
 \listoffigures
@@ -27,8 +26,8 @@
 
 Notes (Please Read):
 \begin{itemize}
-  \item \textit{print(df.to\_latex())} will give a latex export of the dataframe in the jupyter notebook, you can use this to quickly copy paste into latex
-  \item \textit{plt.savefig(<path>)} will allow you to save your figure as a png so it can be used in the document/presentation
+  \item print(df.to\_latex()) will give a latex export of the dataframe in the jupyter notebook, you can use this to quickly copy paste into latex
+  \item plt.savefig(<path>) will allow you to save your figure as a png so it can be used in the document/presentation
   \item Make sure to commit and pull as much as possible to avoid merge errors
   \item Don't edit the styles of this document yet, will do that at the end
 \end{itemize}
@@ -39,6 +38,7 @@ Notes (Please Read):
   \end{subsection}
   \begin{subsection}{Literature Review}
     \begin{subsubsection}{Luminosity-based Approach}
+<<<<<<< HEAD
       TODO Michael: Try to accumulate as much as possible. We have such a long list of papers anyway...\\
       The use of night time light data is increasingly being used in economic papers. The aim of this data is to improve the quality of economic data, especially in many war-torn countries where this data is poor. This data becomes even more difficult to work with once regional economic data is needed. This poor data makes it incredibly difficult to understand the country's economic growth. Light data is seen as a promising development in this area. Not only does it provide information for every country, but it also show the spread of activity throughout each country and region. Throughout this paper light levels are used as a proxy for the GDP of an area. Is it feasible to use this variable as a proxy? \\
       
@@ -49,9 +49,12 @@ Notes (Please Read):
       The correlation between light levels and economic activity is shown in several revealing ways by Henderson, Storeygard, and Wei in their paper \textit{``Measuring Economic Growth from Outer Space''}. The examples used in the paper are the stark contrast on the Korean peninsula of the growth rates north and south of the border. A further example is in Indonesia before and after the Asian financial crisis in 1997. Actual GDP levels are are mirrored by the predicted levels from the light data through the shock. The same can be seen during the genocide of Rwanda. This is an important example as it shows how lights are affected by a shock. Our paper also investigates economic levels after a shock, but this shock is a natural disaster rather than a financial crisis. 
  		
       
+=======
+      TODO Michael: Try to accumulate as much as possible. We have such a long list of papers anyway.
+>>>>>>> 0423ebdf4abd9953aacdc14fc707e3feb67a3568
     \end{subsubsection}
     \begin{subsubsection}{Natural Disaster Economics}
-      TODO Viviana: obviously, as the expert...
+      TODO Viviana: obviously, as the expert.
     \end{subsubsection}
   \end{subsection}
 \end{section}
@@ -61,13 +64,36 @@ Notes (Please Read):
     TODO Micheal: Describe what the data looks like, how many observations there are, where we got it, who else has used it etc.
   \end{subsection}
   \begin{subsection}{Data Preprocessing}
-    TODO Jonas: Diffing volume issues (size of images)
+    By the nature of the data, certain hurdles must be overcome before it's possible to model the luminosity data in any way. These issues include especially:
+    \begin{description}
+      \item[Volume]{While the number of observations is extremely low, as only annual images are available from 1992 to 2013, the dimensionality of each observation (image) is considerable. With a size of $16801$ by $43201$, every image contains $725820001$ pixels in total, which results in more than 700MB of disk-space required for only one image in uncompressed format. This also means that computations on the entire dataset are not possible with common personal computing architecture.}
+      \item[Noise]{The data is inherently noisy and contains measurement irregularities stemming from e.g.\ human activity, orbital body positioning, luminosity radiance etc.\ TODO:Jonas, literature onthis?}
+    \end{description}
+    \begin{subsubsection}{QGIS}
+      TODO Viviana
+    \end{subsubsection}
+    \begin{subsubsection}{Python Architecture}
+      TODO Jonas
+    \end{subsubsection}
+    \begin{subsubsection}{Denoising}
+      \begin{figure}[t!]
+        \centering
+        \includegraphics[width=1\linewidth]{pca_balancer_diffs}\label{fig:weighted_balanced_luminosity_sum_series} %TODO: Adjust plot pngs to have sensible size for document
+        \caption{Luminosity Series Balanced by PCA Components}
+      \end{figure}
+      \begin{figure}[t!]
+        \centering
+        \includegraphics[width=1\linewidth]{pca_balancer_diffs}\label{fig:pca_balanced_luminosity_sum_series} %TODO: Adjust plot pngs to have sensible size for document
+        \caption{Luminosity Series Balanced by PCA Components}
+      \end{figure}
+    \end{subsubsection}
   \end{subsection}
 \end{section}
 
 \begin{section}{Modelling}
   \begin{subsection}{Disaster Impact Models}
-    TODO Jonas: Describe other regressions that just study impact of earthquakes and some of the models tried out.
+    Exploratory analysis and some basic models are a first step to assessing the impact of natural disasters on the luminosity time series. For this, we need to make a modelling decision regarding how the disaster (represented only as a single point location) can be geospatially associated with pixel luminosity values. TODO Jonas, literature on this?
+    One practical mathematical choice is a function decaying with distance affecting areas or even individual pixels on the grid. The advantage of this method is that it is simple to explain, easily tuneable and leaves a lot of flexibility for modelling. Additionally, it captures the notion that areas in the vicinity of a disaster event are more likely to be affected than those further away by default. However, this approach makes some strong assumptions about the nature of natural disasters that don't hold in reality. An important factor in how much impact a disaster has on a region are geographical features: An earthquake will affect different areas differently based on their rockbed and geological consistency while e.g.\ storms and floods depend strongly on the topography.
   \end{subsection}
   \begin{subsection}{Panel Model}
     \begin{subsubsection}{Region-based Panel}
@@ -84,7 +110,7 @@ Notes (Please Read):
 
 \begin{section}{Results}
   \begin{subsection}{Case Analysis}
-    TODO Micheal: This is where your case analysis for different places goes, try to add some statistical tests etc. if possible. E.g. distribution of light one year vs the next compared to overall time series distribution changes (shocks).
+    TODO Micheal: This is where your case analysis for different places goes, try to add some statistical tests etc.\ if possible. E.g.\ distribution of light one year vs the next compared to overall time series distribution changes (shocks).
   \end{subsection}
   \begin{subsection}{Modelling Results}
     TODO Viviana: Describe the results of the regression here, significant values and what those values mean.
