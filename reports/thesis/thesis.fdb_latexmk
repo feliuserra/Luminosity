@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex thesis"] 1498573210 "thesis.aux" "thesis.bbl" "thesis" 1498573213
+["bibtex thesis"] 1498574699 "thesis.aux" "thesis.bbl" "thesis" 1498574699
   "references.bib" 0 -1 0 ""
-  "thesis.aux" 1498573211 2198 aaa0ed2b205593de1e00cfda28b4cd61 ""
+  "thesis.aux" 1498574685 2198 aaa0ed2b205593de1e00cfda28b4cd61 ""
   (generated)
   "thesis.blg"
   "thesis.bbl"
-["xdvipdfmx"] 1498573211 "thesis.xdv" "thesis.pdf" "thesis" 1498573213
-  "thesis.xdv" 1498573211 58464 8e00ec84e13f94ee0cf8ef20160f727d "xelatex"
+["xdvipdfmx"] 1498574685 "thesis.xdv" "thesis.pdf" "thesis" 1498574699
+  "thesis.xdv" 1498574685 58316 8e37afabc62689caec4cc0396683f5a2 "xelatex"
   (generated)
   "thesis.pdf"
-["xelatex"] 1498573210 "thesis.tex" "thesis.xdv" "thesis" 1498573213
+["xelatex"] 1498574684 "thesis.tex" "thesis.xdv" "thesis" 1498574699
   "../figures/pca_balancer_diffs.png" 1498560910 1001588 4066406feefc1ea83e7b7e577f18de5c ""
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1480098670 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1480098701 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -34,16 +34,16 @@
   "/usr/local/texlive/2017/texmf-dist/web2c/texmf.cnf" 1494087824 32646 eadc4ca26cdbe7105ac7c593aa8c4f72 ""
   "/usr/local/texlive/2017/texmf-var/web2c/xetex/xelatex.fmt" 1495593504 3678517 cf88ab0d543b48a512d7ba85d215fe58 ""
   "/usr/local/texlive/2017/texmf.cnf" 1495593465 577 2b71d4d888f9e5560b2e99985915a9fa ""
-  "thesis.aux" 1498573211 2198 aaa0ed2b205593de1e00cfda28b4cd61 ""
+  "thesis.aux" 1498574685 2198 aaa0ed2b205593de1e00cfda28b4cd61 ""
   "thesis.bbl" 0 -1 0 "bibtex thesis"
-  "thesis.lof" 1498573211 206 6784c2ea0ffbc684355920526ba18cca ""
-  "thesis.lot" 1498573211 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "thesis.tex" 1498573207 5651 9322c860ac53ffd3427961a0819207b4 ""
-  "thesis.toc" 1498573211 1402 3892dcf187e7813161277de7c86ab739 ""
+  "thesis.lof" 1498574685 206 6784c2ea0ffbc684355920526ba18cca ""
+  "thesis.lot" 1498574685 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "thesis.tex" 1498574695 5657 a9d5843e1a79033aa12e0d0848ee9c64 ""
+  "thesis.toc" 1498574685 1402 3892dcf187e7813161277de7c86ab739 ""
   (generated)
-  "thesis.toc"
-  "thesis.lof"
-  "thesis.log"
   "thesis.lot"
-  "thesis.aux"
   "thesis.xdv"
+  "thesis.lof"
+  "thesis.toc"
+  "thesis.aux"
+  "thesis.log"
