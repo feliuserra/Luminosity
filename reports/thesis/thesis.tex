@@ -47,7 +47,7 @@ Notes (Please Read):
     By the nature of the data, certain hurdles must be overcome before it's possible to model the luminosity data in any way. These issues include especially:
     \begin{description}
       \item[Volume]{While the number of observations is extremely low, as only annual images are available from 1992 to 2013, the dimensionality of each observation (image) is considerable. With a size of $16801$ by $43201$, every image contains $725820001$ pixels in total, which results in more than 700MB of disk-space required for only one image in uncompressed format. This also means that computations on the entire dataset are not possible with common personal computing architecture.}
-      \item[Noise]{The data is inherently noisy and contains measurement irregularities stemming from e.g.\ human activity, orbital body positioning, luminosity radiance etc.\ TODO:Jonas, literature onthis?}
+      \item[Noise]{The data is inherently noisy and contains measurement irregularities stemming from e.g.\ human activity, orbital body positioning, luminosity radiance etc.\ Although the images have been corrected for solar and lunar influence, a look at the chart still suggests some noise level that differs}
     \end{description}
     \begin{subsubsection}{QGIS}
       TODO Viviana
@@ -56,16 +56,6 @@ Notes (Please Read):
       TODO Jonas
     \end{subsubsection}
     \begin{subsubsection}{Denoising}
-      \begin{figure}[t!]
-        \centering
-        \includegraphics[width=1\linewidth]{pca_balancer_diffs}\label{fig:weighted_balanced_luminosity_sum_series} %TODO: Adjust plot pngs to have sensible size for document
-        \caption{Luminosity Series Balanced by PCA Components}
-      \end{figure}
-      \begin{figure}[t!]
-        \centering
-        \includegraphics[width=1\linewidth]{pca_balancer_diffs}\label{fig:pca_balanced_luminosity_sum_series} %TODO: Adjust plot pngs to have sensible size for document
-        \caption{Luminosity Series Balanced by PCA Components}
-      \end{figure}
     \end{subsubsection}
   \end{subsection}
 \end{section}
@@ -73,7 +63,26 @@ Notes (Please Read):
 \begin{section}{Modelling}
   \begin{subsection}{Disaster Impact Models}
     Exploratory analysis and some basic models are a first step to assessing the impact of natural disasters on the luminosity time series. For this, we need to make a modelling decision regarding how the disaster (represented only as a single point location) can be geospatially associated with pixel luminosity values. TODO Jonas, literature on this?
-    One practical mathematical choice is a function decaying with distance affecting areas or even individual pixels on the grid. The advantage of this method is that it is simple to explain, easily tuneable and leaves a lot of flexibility for modelling. Additionally, it captures the notion that areas in the vicinity of a disaster event are more likely to be affected than those further away by default. However, this approach makes some strong assumptions about the nature of natural disasters that don't hold in reality. An important factor in how much impact a disaster has on a region are geographical features: An earthquake will affect different areas differently based on their rockbed and geological consistency while e.g.\ storms and floods depend strongly on the topography.
+    \begin{subsubsection}{Linear Distance-based Modelling}
+      One practical mathematical choice is a function decaying with distance affecting areas or even individual pixels on the grid. The advantage of this method is that it is simple to explain, easily tuneable and leaves a lot of flexibility for modelling. Additionally, it captures the notion that areas in the vicinity of a disaster event are more likely to be affected than those further away by default.
+      To trial this approach, we extracted 150x150 squares from the satellite image of the entire planet in a similar fashion as a convolutional neural network would apply to an image. Then we filter the top $t\%$ most luminous 'subimages', as we can generally disregard those parts of the world that contain no lights (oceans, deserts, etc.) and calculate 
+      However, this approach makes some strong assumptions about the nature of natural disasters that don't hold in reality. An important factor in how much impact a disaster has on a region are geographical features: An earthquake will affect different areas differently based on their rockbed and geological consistency while e.g.\ storms and floods depend strongly on the topography. Nevertheless, the calculation of such a disaster coefficient yields promising results.
+      \begin{figure}
+        \centering
+        \includegraphics[width=1\linewidth]{linear-model-1}\label{fig:linear-model-1} %TODO: Adjust plot pngs to have sensible size for document
+        \caption{Luminosity Growth 1992-2013 plotted against a linearly decaying disaster coefficient for 150x150 image sections.}
+      \end{figure}
+    \end{subsubsection}
+    \begin{figure}[t!]
+      \centering
+      \includegraphics[width=1\linewidth]{pca_balancer_diffs}\label{fig:weighted_balanced_luminosity_sum_series} %TODO: Adjust plot pngs to have sensible size for document
+      \caption{Luminosity Series Balanced by PCA Components}
+    \end{figure}
+    \begin{figure}[t!]
+      \centering
+      \includegraphics[width=1\linewidth]{pca_balancer_diffs}\label{fig:pca_balanced_luminosity_sum_series} %TODO: Adjust plot pngs to have sensible size for document
+      \caption{Luminosity Series Balanced by PCA Components}
+    \end{figure}
   \end{subsection}
   \begin{subsection}{Panel Model}
     \begin{subsubsection}{Region-based Panel}
