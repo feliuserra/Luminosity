@@ -1,22 +1,24 @@
-\contentsline {section}{\numberline {1}Introduction}{3}
-\contentsline {subsection}{\numberline {1.1}Summary}{3}
-\contentsline {subsection}{\numberline {1.2}Literature Review}{3}
-\contentsline {subsubsection}{\numberline {1.2.1}Luminosity-based Approach}{3}
-\contentsline {subsubsection}{\numberline {1.2.2}Natural Disaster Economics}{3}
-\contentsline {section}{\numberline {2}Data}{3}
-\contentsline {subsection}{\numberline {2.1}Data Description}{3}
-\contentsline {subsection}{\numberline {2.2}Data Preprocessing}{4}
-\contentsline {subsubsection}{\numberline {2.2.1}QGIS}{4}
-\contentsline {subsubsection}{\numberline {2.2.2}Python Architecture}{4}
-\contentsline {subsubsection}{\numberline {2.2.3}Denoising}{4}
-\contentsline {section}{\numberline {3}Modelling}{4}
-\contentsline {subsection}{\numberline {3.1}Disaster Impact Models}{4}
-\contentsline {subsection}{\numberline {3.2}Panel Model}{5}
-\contentsline {subsubsection}{\numberline {3.2.1}Region-based Panel}{5}
-\contentsline {subsubsection}{\numberline {3.2.2}Section-based Panel}{5}
-\contentsline {subsubsection}{\numberline {3.2.3}Dynamic Panel}{5}
-\contentsline {section}{\numberline {4}Results}{5}
-\contentsline {subsection}{\numberline {4.1}Case Analysis}{5}
-\contentsline {subsection}{\numberline {4.2}Modelling Results}{5}
-\contentsline {subsection}{\numberline {4.3}Conclusions}{6}
-\contentsline {subsection}{\numberline {4.4}Outlook}{6}
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Summary}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Literature Review}{3}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}Luminosity-based Approach}{3}{subsubsection.1.2.1}
+\contentsline {subsubsection}{\numberline {1.2.2}Natural Disaster Economics}{3}{subsubsection.1.2.2}
+\contentsline {section}{\numberline {2}Data}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Data Description}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Data Preprocessing}{4}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}QGIS}{4}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Python Architecture}{4}{subsubsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.3}Denoising}{5}{subsubsection.2.2.3}
+\contentsline {section}{\numberline {3}Modelling}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Disaster Impact Models}{5}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Linear Distance-based Modelling}{5}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Recorded Disaster Impact-based Modelling}{6}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}Panel Model}{7}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Region-based Panel}{7}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Section-based Panel}{7}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}Dynamic Panel}{7}{subsubsection.3.2.3}
+\contentsline {section}{\numberline {4}Results}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}Case Analysis}{7}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Modelling Results}{7}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Conclusions}{7}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Outlook}{7}{subsection.4.4}
