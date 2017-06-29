@@ -32,65 +32,6 @@
       \includegraphics[width=1\linewidth]{lum_2013}\label{lum_2013}
     \end{figure}			
   \end{frame}
-
-  \begin{frame}
-    \begin{figure}
-      \centering
-      \includegraphics[width=1\linewidth]{world_regions}
-      \caption{Administrative regions and earthquakes}\label{eq}
-    \end{figure}
-  \end{frame}
-\end{section}
-
-\begin{section}{Modelling}
-  \begin{frame}{Modelling Earthquake Impact}{Linearly Decaying with Distance}
-    \begin{figure}
-      \centering
-      \includegraphics[width=1\linewidth]{linear-lum-vs-disco}\label{fig:linear-model-disco-vs-lum-growth} %TODO: Adjust plot pngs to have sensible size for document
-      \caption{Luminosity Growth 1992-2013 plotted against a linearly decaying disaster coefficient for 150x150 image sections.}
-    \end{figure}
-  \end{frame}
-
-  \begin{frame}{Earthquake Lag Coefficients}
-    \begin{center}
-      \begin{tabular}{lr}\\
-        \toprule
-        {} & Average Coefficient \\
-        \midrule
-        el1 & -0.60 \\
-        el2 & -0.37 \\
-        el3 & -0.14 \\
-        \bottomrule\\
-      \end{tabular}\\
-    \end{center}
-    \begin{figure}
-      \centering
-      \includegraphics[width=\linewidth]{non_balanced_earthquake_coefficients_distribution}\label{fig:non_balanced_earthquake_coefficients_distribution}
-      \caption{Distribution of Lag Coefficients for Earthquakes in Vector Autoregression Models per City with 95th and 99th Percentiles}
-    \end{figure}
-  \end{frame}
-
-  \begin{frame}{Earthquake Lag Coefficients}
-    \begin{figure}
-      \centering
-      \includegraphics[width=\linewidth]{non_balanced_earthquake_coefficients_winning_lag}\label{fig:non_balanced_earthquake_winning_lag}
-      \caption{Count of the most impactful earthquake lag coefficient across all cities}
-    \end{figure}
-  \end{frame}
-
-  \begin{frame}{Dynamic Panel Model with Fixed Effects}
-    \begin{align*}
-      y_{i,t}-y_{i,t-1}=\alpha_i+\beta_t+\gamma(y_{i,t-1}-y_{i,t-2})+\delta EQ_{i,t}+\eta EQ_{i,t-1}+\epsilon_{i,t}
-    \end{align*}      
-  \end{frame}
-
-  \begin{frame}{Section-based Panel}
-    \begin{figure}
-      \centering
-      \includegraphics[width=\linewidth]{haiti_luminosity_series_short}\label{fig:haiti_luminosity_series_short}
-      \caption{50x50 pixel atellite image cutout of Port-au-Prince, Haiti}
-    \end{figure}
-  \end{frame}
 \end{section}
 
 \begin{section}{Case Studies}
@@ -121,36 +62,84 @@
   \end{frame}
 \end{section}
 
+\begin{section}{Modelling}
+  \begin{frame}{Modelling Earthquake Impact Linearly Decaying with Distance}{Disco vs. Luminosity}
+    \begin{figure}
+      \centering
+      \includegraphics[width=1\linewidth]{linear-lum-vs-disco}\label{fig:linear-model-disco-vs-lum-growth} %TODO: Adjust plot pngs to have sensible size for document
+      \caption{Luminosity Growth 1992-2013 plotted against a linearly decaying disaster coefficient for 150x150 image sections.}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}{Modelling Earthquake Impact based on Institutional Reports}{Earthquake Lag Coefficients}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\linewidth]{non_balanced_earthquake_coefficients_distribution}\label{fig:non_balanced_earthquake_coefficients_distribution}
+      \caption{Distribution of Lag Coefficients for Earthquakes in Vector Autoregression Models per City with 95th and 99th Percentiles}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}{Modelling Earthquake Impact based on Institutional Reports}{Earthquake Lag Coefficients}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\linewidth]{non_balanced_earthquake_coefficients_winning_lag}\label{fig:non_balanced_earthquake_winning_lag}
+      \caption{Count of the most impactful earthquake lag coefficient across all cities}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}{Panel Model}{Region Series}
+    \begin{figure}
+      \centering
+      \includegraphics[width=1\linewidth]{world_regions}
+      \caption{Administrative regions and earthquakes}\label{eq}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}{Panel Model}{Section Series}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\linewidth]{haiti_luminosity_series_short}\label{fig:haiti_luminosity_series_short}
+      \caption{50x50 pixel atellite image cutout of Port-au-Prince, Haiti}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}{Dynamic Panel Model with Fixed Effects}{Formula}
+    \begin{align*}
+      y_{i,t}-y_{i,t-1}=\alpha_i+\beta_t+\gamma(y_{i,t-1}-y_{i,t-2})+\delta EQ_{i,t}+\eta EQ_{i,t-1}+\epsilon_{i,t}
+    \end{align*}      
+  \end{frame}
+\end{section}
+
 \begin{section}{Results}
-%   \begin{frame}{City-level Dynamic Panel Regression}
-%     \begin{table}
-%       \centering
-%       %\begin{tiny}
-%       \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-%       \caption{Regression using cities data, separated by geographic regions(all the events)\label{tab3}}
-%       \resizebox{\textwidth}{!}{
-%         \begin{tabular}{l*{8}{c}}
-%           \hline\hline
-%           &\multicolumn{1}{c}{World}&\multicolumn{1}{c}{E. Asia \&}&\multicolumn{1}{c}{Europe \&}&\multicolumn{1}{c}{LA \&}&\multicolumn{1}{c}{ME \& N}&\multicolumn{1}{c}{North}&\multicolumn{1}{c}{South}&\multicolumn{1}{c}{Sub-Saharan}\\
-%           &\multicolumn{1}{c}{}&\multicolumn{1}{c}{Pacific}&\multicolumn{1}{c}{C. Asia}&\multicolumn{1}{c}{Caribbean}&\multicolumn{1}{c}{Africa}&\multicolumn{1}{c}{America}&\multicolumn{1}{c}{Asia}&\multicolumn{1}{c}{Africa}\\
-%           \hline
-%           lum\_gr\_1            &      -0.400\sym{**}&      -0.427\sym{**}&      -0.410\sym{**}&      -0.387\sym{**}&      -0.271\sym{**}&      -0.445\sym{**}&      -0.317\sym{**}&      -0.359\sym{**}\\
-%                                 &   (-415.58)        &   (-160.80)        &   (-290.78)        &   (-162.52)        &    (-23.47)        &   (-138.06)        &    (-88.81)        &    (-66.85)        \\
-%           [1em]
-%           eq    &    -0.00772        &      0.0135        &     -0.0285        &     -0.0313\sym{**}&      0.0114        &      0.0103        &      0.0217        &     -0.0492        \\
-%                 &     (-0.86)        &      (0.50)        &     (-1.37)        &     (-2.51)        &      (0.12)        &      (0.25)        &      (0.85)        &     (-0.42)        \\
-%           [1em]
-%           eq\_1  &    -0.00386        &     0.00274        &    -0.00375        &    -0.00698        &     -0.0213        &      0.0370        &     -0.0107        &      -0.136        \\
-%                  &     (-0.43)        &      (0.10)        &     (-0.18)        &     (-0.56)        &     (-0.22)        &      (0.96)        &     (-0.40)        &     (-1.16)        \\
-%           \hline
-%           Observations        &      798844        &      104184        &      373310        &      116333        &        6977        &       71460        &       64807        &       26164        \\
-%           \hline\hline
-%           \multicolumn{9}{l}{\footnotesize \textit{t} statistics in parentheses}\\
-%           \multicolumn{9}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\)}\\
-%       \end{tabular}}
-%       %\end{tiny}
-%     \end{table}
-%   \end{frame}
+  \begin{frame}{City-level Dynamic Panel Regression}
+    % \begin{table}
+    %   \centering
+    %   %\begin{tiny}
+    %   \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+    %   \caption{Regression using cities data, separated by geographic regions(all the events)\label{tab3}}
+    %   \resizebox{\textwidth}{!}{
+    %     \begin{tabular}{l*{8}{c}}
+    %       \hline\hline
+    %       &\multicolumn{1}{c}{World}&\multicolumn{1}{c}{E. Asia \&}&\multicolumn{1}{c}{Europe \&}&\multicolumn{1}{c}{LA \&}&\multicolumn{1}{c}{ME \& N}&\multicolumn{1}{c}{North}&\multicolumn{1}{c}{South}&\multicolumn{1}{c}{Sub-Saharan}\\
+    %       &\multicolumn{1}{c}{}&\multicolumn{1}{c}{Pacific}&\multicolumn{1}{c}{C. Asia}&\multicolumn{1}{c}{Caribbean}&\multicolumn{1}{c}{Africa}&\multicolumn{1}{c}{America}&\multicolumn{1}{c}{Asia}&\multicolumn{1}{c}{Africa}\\
+    %       \hline
+    %       lum\_gr\_1            &      -0.400\sym{**}&      -0.427\sym{**}&      -0.410\sym{**}&      -0.387\sym{**}&      -0.271\sym{**}&      -0.445\sym{**}&      -0.317\sym{**}&      -0.359\sym{**}\\
+    %                             &   (-415.58)        &   (-160.80)        &   (-290.78)        &   (-162.52)        &    (-23.47)        &   (-138.06)        &    (-88.81)        &    (-66.85)        \\
+    %       [1em]
+    %       eq    &    -0.00772        &      0.0135        &     -0.0285        &     -0.0313\sym{**}&      0.0114        &      0.0103        &      0.0217        &     -0.0492        \\
+    %             &     (-0.86)        &      (0.50)        &     (-1.37)        &     (-2.51)        &      (0.12)        &      (0.25)        &      (0.85)        &     (-0.42)        \\
+    %       [1em]
+    %       eq\_1  &    -0.00386        &     0.00274        &    -0.00375        &    -0.00698        &     -0.0213        &      0.0370        &     -0.0107        &      -0.136        \\
+    %              &     (-0.43)        &      (0.10)        &     (-0.18)        &     (-0.56)        &     (-0.22)        &      (0.96)        &     (-0.40)        &     (-1.16)        \\
+    %       \hline
+    %       Observations        &      798844        &      104184        &      373310        &      116333        &        6977        &       71460        &       64807        &       26164        \\
+    %       \hline\hline
+    %       \multicolumn{9}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+    %       \multicolumn{9}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\)}\\
+    %   \end{tabular}}
+    %   %\end{tiny}
+    % \end{table}
+  \end{frame}
 \end{section}
 
 
