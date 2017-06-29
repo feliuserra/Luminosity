@@ -1,4 +1,2 @@
 **/*.ipynb linguist-generated
-
-reports linguist-generated
-notebooks linguist-generated
+**/*.tex linguist-generated
