@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.28)  29 JUN 2017 18:30
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.28)  29 JUN 2017 18:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -304,33 +304,33 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 ) (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 18.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    ... okay on input line 18.
 \AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 15.
+Package hyperref Info: Link coloring OFF on input line 18.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -340,9 +340,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count104
 )
-LaTeX Info: Redefining \ref on input line 15.
-LaTeX Info: Redefining \pageref on input line 15.
-LaTeX Info: Redefining \nameref on input line 15.
+LaTeX Info: Redefining \ref on input line 18.
+LaTeX Info: Redefining \pageref on input line 18.
+LaTeX Info: Redefining \nameref on input line 18.
 
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write3
@@ -350,20 +350,20 @@ LaTeX Info: Redefining \nameref on input line 15.
 
 \symgns@font=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
-(Font)                  TS1/lmr/m/n --> TS1/lmr/bx/n on input line 15.
-Package gensymb Info: Math companion symbols declared on input line 15.
-LaTeX Info: Redefining \degree on input line 15.
-LaTeX Info: Redefining \celsius on input line 15.
+(Font)                  TS1/lmr/m/n --> TS1/lmr/bx/n on input line 18.
+Package gensymb Info: Math companion symbols declared on input line 18.
+LaTeX Info: Redefining \degree on input line 18.
+LaTeX Info: Redefining \celsius on input line 18.
 Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
-erthousand on input line 15.
-LaTeX Info: Redefining \ohm on input line 15.
-Package gensymb Info: Using \textohm for \ohm on input line 15.
-Package gensymb Info: Using \textmu for \micro on input line 15.
+erthousand on input line 18.
+LaTeX Info: Redefining \ohm on input line 18.
+Package gensymb Info: Using \textohm for \ohm on input line 18.
+Package gensymb Info: Using \textmu for \micro on input line 18.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 18.
+(Font)              <14.4> on input line 21.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 18.
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 18.
+(Font)              <7> on input line 21.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 21.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -394,7 +394,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout6 = `thesis.lot'.
 
  [3] [4]
-Overfull \hbox (4.94803pt too wide) in paragraph at lines 45--48
+Overfull \hbox (4.94803pt too wide) in paragraph at lines 48--51
 \TU/lmr/m/n/12 Data on natural disasters was taken from The International Disas
 ter Database.
  []
@@ -404,12 +404,12 @@ File: ../figures/world_regions.png Graphic file (type QTm)
  <use  "../figures/world_regions.png" > [6]
 
 LaTeX Warning: Hyper reference `www.github.com/westermann/luminosity' on page 7
- undefined on input line 68.
+ undefined on input line 71.
 
 [7]
 File: ../figures/linear-lum-vs-disco.png Graphic file (type QTm)
  <use  "../figures/linear-lum-vs-disco.png" > [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 88--90
+Underfull \hbox (badness 10000) in paragraph at lines 91--93
 
  []
 
@@ -420,7 +420,7 @@ file (type QTm)
 File: ../figures/haiti_luminosity_series.png Graphic file (type QTm)
  <use  "../figures/haiti_luminosity_series.png" >
 
-LaTeX Warning: Float too large for page by 12.95174pt on input line 121.
+LaTeX Warning: Float too large for page by 12.95174pt on input line 124.
 
 [11]
 File: ../figures/tocopilla_series.png Graphic file (type QTm)
@@ -428,36 +428,36 @@ File: ../figures/tocopilla_series.png Graphic file (type QTm)
 File: ../figures/maule_series.png Graphic file (type QTm)
 
 <use  "../figures/maule_series.png" >
-Underfull \hbox (badness 10000) in paragraph at lines 142--149
+Underfull \hbox (badness 10000) in paragraph at lines 145--152
 
  []
 
 [12] [13]
 File: ../figures/maule_tocopilla.png Graphic file (type QTm)
  <use  "../figures/maule_tocopilla.png" >
-Underfull \hbox (badness 10000) in paragraph at lines 150--154
+Underfull \hbox (badness 10000) in paragraph at lines 153--157
 
  []
 
 [14]
 File: ../figures/fukushima.png Graphic file (type QTm)
  <use  "../figures/fukushima.png" > [15] [16] [17]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 209.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 212.
  [18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 209.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 212.
  (./thesis.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 209.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 209.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 212.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 212.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 209.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 212.
  ) 
 Here is how much of TeX's memory you used:
  8685 strings out of 493005
  123405 string characters out of 6134596
- 206875 words of memory out of 5000000
+ 206979 words of memory out of 5000000
  12584 multiletter control sequences out of 15000+600000
  9939 words of font info for 41 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
