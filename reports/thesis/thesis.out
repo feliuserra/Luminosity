@@ -6,7 +6,7 @@
 \BOOKMARK [1][-]{section.2}{Data}{}% 6
 \BOOKMARK [2][-]{subsection.2.1}{Data\040Description}{section.2}% 7
 \BOOKMARK [2][-]{subsection.2.2}{Data\040Preprocessing}{section.2}% 8
-\BOOKMARK [3][-]{subsubsection.2.2.1}{QGIS}{subsection.2.2}% 9
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Georeferencing\040and\040QGIS}{subsection.2.2}% 9
 \BOOKMARK [3][-]{subsubsection.2.2.2}{Python\040Architecture}{subsection.2.2}% 10
 \BOOKMARK [1][-]{section.3}{Modelling}{}% 11
 \BOOKMARK [2][-]{subsection.3.1}{Disaster\040Impact\040Models}{section.3}% 12
@@ -18,6 +18,8 @@
 \BOOKMARK [3][-]{subsubsection.3.2.3}{Dynamic\040Panel}{subsection.3.2}% 18
 \BOOKMARK [1][-]{section.4}{Results}{}% 19
 \BOOKMARK [2][-]{subsection.4.1}{Case\040Analysis}{section.4}% 20
-\BOOKMARK [2][-]{subsection.4.2}{Modelling\040Results}{section.4}% 21
-\BOOKMARK [2][-]{subsection.4.3}{Conclusions}{section.4}% 22
-\BOOKMARK [2][-]{subsection.4.4}{Outlook}{section.4}% 23
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Tocopilla\040and\040Maule\040Earthquakes}{subsection.4.1}% 21
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Fukushima\040Daichii\040Nuclear\040Disaster}{subsection.4.1}% 22
+\BOOKMARK [2][-]{subsection.4.2}{Panel\040Modelling\040Results}{section.4}% 23
+\BOOKMARK [2][-]{subsection.4.3}{Conclusions}{section.4}% 24
+\BOOKMARK [2][-]{subsection.4.4}{Outlook}{section.4}% 25

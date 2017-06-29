@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.28)  29 JUN 2017 15:21
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.28)  29 JUN 2017 18:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -211,29 +211,126 @@ Package: booktabs 2016/04/27 v1.618033 publication quality tables
 \@lastruleclass=\count102
 \@thisrulewidth=\dimen122
 )
-(./thesis.aux)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2017/04/05 v2.0i Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
+) (./gensymb.sty
+Package: gensymb 2003/07/02 v1.0 (WaS)
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count103
+\float@exts=\toks15
+\float@box=\box27
+\@float@everytoks=\toks16
+\@floatcapt=\box28
+) (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-\AtBeginShipoutBox=\box27
-Package hyperref Info: Link coloring OFF on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 15.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 15.
+\AtBeginShipoutBox=\box29
+Package hyperref Info: Link coloring OFF on input line 15.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -241,21 +338,36 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count103
+\c@section@level=\count104
 )
-LaTeX Info: Redefining \ref on input line 12.
-LaTeX Info: Redefining \pageref on input line 12.
-LaTeX Info: Redefining \nameref on input line 12.
+LaTeX Info: Redefining \ref on input line 15.
+LaTeX Info: Redefining \pageref on input line 15.
+LaTeX Info: Redefining \nameref on input line 15.
 
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write3
 \openout3 = `thesis.out'.
 
+\symgns@font=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
+(Font)                  TS1/lmr/m/n --> TS1/lmr/bx/n on input line 15.
+Package gensymb Info: Math companion symbols declared on input line 15.
+LaTeX Info: Redefining \degree on input line 15.
+LaTeX Info: Redefining \celsius on input line 15.
+Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
+erthousand on input line 15.
+LaTeX Info: Redefining \ohm on input line 15.
+Package gensymb Info: Using \textohm for \ohm on input line 15.
+Package gensymb Info: Using \textmu for \micro on input line 15.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 15.
+(Font)              <14.4> on input line 18.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 15.
+(Font)              <7> on input line 18.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 18.
 
+(/usr/local/texlive/2017/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 
@@ -273,7 +385,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@toc=\write4
 \openout4 = `thesis.toc'.
 
- (./thesis.lof)
+ (./thesis.lof [2])
 \tf@lof=\write5
 \openout5 = `thesis.lof'.
 
@@ -281,45 +393,74 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@lot=\write6
 \openout6 = `thesis.lot'.
 
- [2] [3] [4]
-
-LaTeX Warning: Hyper reference `www.github.com/westermann/luminosity' on page 5
- undefined on input line 62.
+ [3] [4]
+Overfull \hbox (4.94803pt too wide) in paragraph at lines 45--48
+\TU/lmr/m/n/12 Data on natural disasters was taken from The International Disas
+ter Database.
+ []
 
 [5]
+File: ../figures/world_regions.png Graphic file (type QTm)
+ <use  "../figures/world_regions.png" > [6]
+
+LaTeX Warning: Hyper reference `www.github.com/westermann/luminosity' on page 7
+ undefined on input line 68.
+
+[7]
 File: ../figures/linear-lum-vs-disco.png Graphic file (type QTm)
- <use  "../figures/linear-lum-vs-disco.png" > [6]
-Underfull \hbox (badness 10000) in paragraph at lines 82--84
+ <use  "../figures/linear-lum-vs-disco.png" > [8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 88--90
 
  []
 
-[7]
 File: ../figures/non_balanced_earthquake_coefficients_distribution.png Graphic 
 file (type QTm)
- <use  "../figures/non_balanced_earthquake_coefficients_distribution.png" >
-[8]
+<use  "../figures/non_balanced_earthquake_coefficients_distribution.png" >
+[10]
 File: ../figures/haiti_luminosity_series.png Graphic file (type QTm)
- <use  "../figures/haiti_luminosity_series.png" > [9]
-No file thesis.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 141.
-[10] [11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 141.
+ <use  "../figures/haiti_luminosity_series.png" >
+
+LaTeX Warning: Float too large for page by 12.95174pt on input line 121.
+
+[11]
+File: ../figures/tocopilla_series.png Graphic file (type QTm)
+ <use  "../figures/tocopilla_series.png" >
+File: ../figures/maule_series.png Graphic file (type QTm)
+
+<use  "../figures/maule_series.png" >
+Underfull \hbox (badness 10000) in paragraph at lines 142--149
+
+ []
+
+[12] [13]
+File: ../figures/maule_tocopilla.png Graphic file (type QTm)
+ <use  "../figures/maule_tocopilla.png" >
+Underfull \hbox (badness 10000) in paragraph at lines 150--154
+
+ []
+
+[14]
+File: ../figures/fukushima.png Graphic file (type QTm)
+ <use  "../figures/fukushima.png" > [15] [16] [17]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 209.
+ [18]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 209.
  (./thesis.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 141.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 141.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 209.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 209.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 141.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 209.
  ) 
 Here is how much of TeX's memory you used:
- 8146 strings out of 493005
- 114714 string characters out of 6134596
- 199623 words of memory out of 5000000
- 12074 multiletter control sequences out of 15000+600000
- 7713 words of font info for 35 fonts, out of 8000000 for 9000
+ 8685 strings out of 493005
+ 123405 string characters out of 6134596
+ 206875 words of memory out of 5000000
+ 12584 multiletter control sequences out of 15000+600000
+ 9939 words of font info for 41 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 28i,6n,45p,1440b,461s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 28i,6n,45p,1432b,477s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (11 pages).
+Output written on thesis.pdf (18 pages).
