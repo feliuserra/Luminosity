@@ -1,6 +1,3 @@
-# Copyright (c) Jupyter Development Team.
-# Distributed under the terms of the Modified BSD License.
-
 # Debian Jessie debootstrap from 2017-02-27
 # https://github.com/docker-library/official-images/commit/aa5973d0c918c70c035ec0746b8acaec3a4d7777
 FROM debian@sha256:52af198afd8c264f1035206ca66a5c48e602afb32dc912ebf9e9478134601ec4
@@ -38,24 +35,21 @@ RUN wget --quiet https://github.com/krallin/tini/releases/download/v0.10.0/tini 
 ENV CONDA_DIR /opt/conda
 ENV PATH $CONDA_DIR/bin:$PATH
 ENV SHELL /bin/bash
-ENV NB_USER jovyan
+ENV NB_USER econ_user
 ENV NB_UID 1000
 ENV HOME /home/$NB_USER
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
-# Create jovyan user with UID=1000 and in the 'users' group
+# Create econ_user user with UID=1000 and in the 'users' group
 RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && \
     mkdir -p $CONDA_DIR && \
     chown $NB_USER $CONDA_DIR
 
 USER $NB_USER
 
-# Setup work directory for backward-compatibility
-RUN mkdir /home/$NB_USER/work
-
-# Install conda as jovyan and check the md5 sum provided on the download site
+# Install conda as econ_user and check the md5 sum provided on the download site
 ENV MINICONDA_VERSION 4.3.21
 RUN cd /tmp && \
     mkdir -p $CONDA_DIR && \
@@ -81,6 +75,13 @@ USER root
 EXPOSE 8888
 WORKDIR $HOME
 
+# Setup notebook directory in the user directory
+RUN mkdir /home/$NB_USER/figures
+RUN mkdir /home/$NB_USER/data
+ADD src /home/$NB_USER/src
+RUN chmod -R +x /home/$NB_USER/src
+RUN /home/$NB_USER/src/setup/get_Version-4-DMSP-OLS-Nighttime-Lights-Composites.sh
+
 # Configure container startup
 ENTRYPOINT ["tini", "--"]
 CMD ["jupyter", "notebook", "--no-browser"]
@@ -91,5 +92,6 @@ COPY start-singleuser.sh /usr/local/bin/
 COPY jupyter_notebook_config.py /etc/jupyter/
 RUN chown -R $NB_USER:users /etc/jupyter/
 
-# Switch back to jovyan to avoid accidental container runs as root
+# Switch back to econ_user to avoid accidental container runs as root
 USER $NB_USER
+

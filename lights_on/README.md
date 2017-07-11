@@ -11,3 +11,17 @@ The idea of this project is to provide an easy tool for economists to explore ge
 This tool is not a package or software, but rather a combination of different open-source projects tailored to this purpose making it as easy as possible to get started without having to do lots of setup work. _Lights On_ relies heavily on:
 * [Docker](https://www.docker.com/)
 * [Jupyter](http://jupyter.org/)
+
+
+## Get Started
+
+### Notes
+
+* On mac, the ip is not localhost but can be found as follows `docker-machine ip $(docker-machine active)`
+
+
+## Further Reading
+
+### On Luminosity in Economics
+
+* Henderson, V., Storeygard, A., & Weil, D. N. (2011). Measuring Economic Growth from Outer Space. American Economic Review, 102 (2012 ), 994 – 1028.
