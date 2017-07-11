@@ -21,6 +21,9 @@ RUN REPO=http://cdn-fastly.deb.debian.org \
     fonts-liberation \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get -y install gcc mono-mcs && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen
@@ -70,17 +73,24 @@ RUN conda install --quiet --yes \
     'jupyterlab=0.24.*' \
     && conda clean -tipsy
 
+# Install other requirements
+ADD requirements.txt $HOME/requirements.txt
+RUN conda install --quiet --yes \
+		--file $HOME/requirements.txt
+
 USER root
 
 EXPOSE 8888
 WORKDIR $HOME
 
 # Setup notebook directory in the user directory
-RUN mkdir /home/$NB_USER/figures
-RUN mkdir /home/$NB_USER/data
-ADD src /home/$NB_USER/src
+RUN mkdir $HOME/figures
+RUN mkdir $HOME/data
+RUN mkdir $HOME/data/Version_4_DMSP-OLS_Nighttime_Lights_Time_Series
+ADD src $HOME/src
 RUN chmod -R +x /home/$NB_USER/src
-RUN /home/$NB_USER/src/setup/get_Version-4-DMSP-OLS-Nighttime-Lights-Composites.sh
+RUN $HOME/src/setup/get_Version-4-DMSP-OLS-Nighttime-Lights-Composites.sh
+RUN python $HOME/src/setup/compress_Version-4-DMSP-OLS-Nighttime-Lights-Composites.py
 
 # Configure container startup
 ENTRYPOINT ["tini", "--"]
