@@ -18,6 +18,7 @@ RUN REPO=http://cdn-fastly.deb.debian.org \
     ca-certificates \
     sudo \
     locales \
+    git \
     fonts-liberation \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
@@ -73,35 +74,35 @@ RUN conda install --quiet --yes \
     'jupyterlab=0.24.*' \
     && conda clean -tipsy
 
-# Install other requirements
-ADD requirements.txt $HOME/requirements.txt
-RUN conda install --quiet --yes \
-		--file $HOME/requirements.txt
-
 USER root
 
 EXPOSE 8888
 WORKDIR $HOME
 
 # Setup notebook directory in the user directory
-RUN mkdir $HOME/figures
-RUN mkdir $HOME/data
-RUN mkdir $HOME/data/Version_4_DMSP-OLS_Nighttime_Lights_Time_Series
-ADD src $HOME/src
-RUN chmod -R +x /home/$NB_USER/src
-RUN $HOME/src/setup/get_Version-4-DMSP-OLS-Nighttime-Lights-Composites.sh
-RUN python $HOME/src/setup/compress_Version-4-DMSP-OLS-Nighttime-Lights-Composites.py
+RUN git clone https://github.com/Westermann/Luminosity
+WORKDIR $HOME/Luminosity/
+RUN git checkout lights_on
+WORKDIR $HOME/Luminosity/lights_on
+RUN conda install --quiet --yes \
+		--file requirements.txt
+RUN mkdir figures
+RUN mkdir data
+RUN mkdir data/Version_4_DMSP-OLS_Nighttime_Lights_Time_Series
+RUN chmod -R +x src
+# RUN src/setup/get_Version-4-DMSP-OLS-Nighttime-Lights-Composites.sh
+# RUN python src/setup/compress_Version-4-DMSP-OLS-Nighttime-Lights-Composites.py
 
-# Configure container startup
+# # Configure container startup
 ENTRYPOINT ["tini", "--"]
 CMD ["jupyter", "notebook", "--no-browser"]
 
-# Add local files as late as possible to avoid cache busting
+# # Add local files as late as possible to avoid cache busting
 COPY start.sh /usr/local/bin/
 COPY start-singleuser.sh /usr/local/bin/
 COPY jupyter_notebook_config.py /etc/jupyter/
 RUN chown -R $NB_USER:users /etc/jupyter/
 
-# Switch back to econ_user to avoid accidental container runs as root
+# # Switch back to econ_user to avoid accidental container runs as root
 USER $NB_USER
 
