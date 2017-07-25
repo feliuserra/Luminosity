@@ -87,8 +87,8 @@ WORKDIR $HOME/Luminosity/lights_on
 RUN conda install --quiet --yes \
 		--file requirements.txt
 RUN mkdir figures
-RUN mkdir data
-RUN mkdir data/Version_4_DMSP-OLS_Nighttime_Lights_Time_Series
+RUN mkdir -p data/downloads/Version_4_DMSP-OLS_Nighttime_Lights_Time_Series
+RUN mkdir -p data/nightlights/year
 RUN chmod -R +x src
 # RUN src/setup/get_Version-4-DMSP-OLS-Nighttime-Lights-Composites.sh
 # RUN python src/setup/compress_Version-4-DMSP-OLS-Nighttime-Lights-Composites.py

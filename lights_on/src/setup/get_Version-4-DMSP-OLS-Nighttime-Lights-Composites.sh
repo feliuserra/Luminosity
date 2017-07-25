@@ -1,4 +1,3 @@
-mkdir -p data/downloads/Version_4_DMSP-OLS_Nighttime_Lights_Time_Series
 cd data/downloads/Version_4_DMSP-OLS_Nighttime_Lights_Time_Series
   # F101992\
   # F101993\
