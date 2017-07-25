@@ -19,6 +19,7 @@ RUN REPO=http://cdn-fastly.deb.debian.org \
     sudo \
     locales \
     git \
+    curl \
     fonts-liberation \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
