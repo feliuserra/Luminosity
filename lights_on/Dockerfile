@@ -94,6 +94,7 @@ RUN chmod -R +x src
 RUN src/setup/get_Version-4-DMSP-OLS-Nighttime-Lights-Composites.sh
 RUN python src/setup/compress_Version-4-DMSP-OLS-Nighttime-Lights-Composites.py
 RUN rm -r data/downloads
+RUN chown -R $NB_USER:users $HOME
 
 # # Configure container startup
 ENTRYPOINT ["tini", "--"]
