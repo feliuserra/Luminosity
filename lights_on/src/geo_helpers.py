@@ -1,9 +1,31 @@
 import numpy as np
 
 
+def translate_degrees(coord):
+    a, b = str(coord).split(".")
+    b = float(b) * (10 ** (2 - len(b)))
+    b = b / 60
+    return float(a) + b
+
+
 def as_pixels(target_coords,
               imgtype="Version 4 DMSP-OLS Nighttime Lights Time Series",
-              offset=None):
+              offset=None,
+              coordtype='degrees'):
+    """
+    Takes a dictionary of target coordinates and calculates
+    the pixel location of those coordinates in the reference system
+    of the selected image collection.
+    """
+    if coordtype == 'degrees':
+        print({k: translate_degrees(v) for k, v in target_coords.items()})
+    elif coordtype == 'decimals':
+        pass
+    else:
+        raise Exception(
+                "Please specify valid coordinate type" +
+                "(coordtype=('decimals', 'degrees')")
+
     img_coord = {
         'Version 4 DMSP-OLS Nighttime Lights Time Series': {
             'lft': 180,
