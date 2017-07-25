@@ -90,8 +90,9 @@ RUN mkdir figures
 RUN mkdir -p data/downloads/Version_4_DMSP-OLS_Nighttime_Lights_Time_Series
 RUN mkdir -p data/nightlights/year
 RUN chmod -R +x src
-# RUN src/setup/get_Version-4-DMSP-OLS-Nighttime-Lights-Composites.sh
-# RUN python src/setup/compress_Version-4-DMSP-OLS-Nighttime-Lights-Composites.py
+RUN src/setup/get_Version-4-DMSP-OLS-Nighttime-Lights-Composites.sh
+RUN python src/setup/compress_Version-4-DMSP-OLS-Nighttime-Lights-Composites.py
+RUN rm -r data/downloads
 
 # # Configure container startup
 ENTRYPOINT ["tini", "--"]
