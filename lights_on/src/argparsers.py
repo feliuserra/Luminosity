@@ -15,18 +15,19 @@ def expand_coordinates(coord_str):
 
 
 def expand_source(src_str):
-    if not re.match(r'[a-z]_[0-9_]', src_str):
+    root = '../data'
+    if not re.match(r'[a-z]_[0-9_]*', src_str):
         Exception('Invalid source given')
 
-    # frequency = re.search(r'^[a-z]{4,5}', src_str).group(0)
-    # return str(source)
-    return '../data/Version_4_DMSP-OLS_Nighttime_' +\
-           'Lights_Time_Series/F182013.v4c_web.stable_lights.avg_vis.tif.npz'
+    freq = re.search(r'^[a-z]{4,5}', src_str).group(0)
+    date_parts = [n.lstrip('0') for n in re.findall(r'[0-9]{1,4}', src_str)]
+    name = '-'.join(date_parts)
+    return '{}/{}/{}/{}.npz'.format(root, 'nightlights', freq, name)
 
 
 def expand_size(size_str):
     pixel_size = (np.nan, np.nan)
-    if re.split(r'_', size_str) != 2:
+    if not re.match(r'[0-9.]{1,11}px_[0-9.]{1,11}px', size_str):
         Exception('Invalid size given')
 
     if re.match(r'[0-9.]{0,9}px_[0-9.]{0,9}px', size_str):

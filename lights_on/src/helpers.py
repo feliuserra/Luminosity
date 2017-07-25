@@ -53,7 +53,6 @@ def load_image(coordinates,
                source,
                size):
     source = expand_source(source)
-    print(source)
     coordinates = expand_coordinates(coordinates)
     pixel_size = expand_size(size)
     pixels = as_pixels(coordinates)
@@ -64,6 +63,3 @@ def load_image(coordinates,
     ])
     del mapped_raster
     return img
-
-
-print(load_image('lat1.35_lng103.8', 'year_2000', '200px_200px'))
