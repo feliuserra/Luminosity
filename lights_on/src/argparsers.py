@@ -9,7 +9,6 @@ def expand_coordinates(coord_str):
         Exception('Invalid coordinates given')
 
     for m in matches:
-        print(str(m))
         coordinates[m[:3]] = float(m[3:])
     return coordinates
 

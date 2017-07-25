@@ -1,5 +1,6 @@
 import copy as cp
 import numpy as np
+import matplotlib.pyplot as plt
 from argparsers import expand_coordinates
 from argparsers import expand_source
 from argparsers import expand_size
@@ -21,6 +22,14 @@ def as_pixels(coordinates,
     the pixel pixelsation of those coordinates in the reference system
     of the selected image collection.
     """
+    if coordtype == 'degrees':
+        coordinates = {k: translate_degrees(v) for k, v in target_coords.items()})
+    elif coordtype == 'decimals':
+        pass
+    else:
+        raise Exception("Please specify valid coordinate type" +
+                        "(coordtype=('decimals', 'degrees')")
+                
     img_coord = {
         'annual_nl': {
             'lft': 180,
@@ -63,3 +72,10 @@ def load_image(coordinates,
     ])
     del mapped_raster
     return img
+
+
+def plot_image(coordinates,
+               source,
+               size):
+    img = load_image(coordinates, source, size)
+
