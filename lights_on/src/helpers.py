@@ -1,9 +1,4 @@
-import copy as cp
 import numpy as np
-import matplotlib.pyplot as plt
-from argparsers import expand_coordinates
-from argparsers import expand_source
-from argparsers import expand_size
 
 
 def translate_degrees(coord):
@@ -23,13 +18,12 @@ def as_pixels(coordinates,
     of the selected image collection.
     """
     if coordtype == 'degrees':
-        coordinates = {k: translate_degrees(v) for k, v in target_coords.items()})
+        coordinates = {k: translate_degrees(v) for k, v in coordinates.items()}
     elif coordtype == 'decimals':
         pass
     else:
         raise Exception("Please specify valid coordinate type" +
                         "(coordtype=('decimals', 'degrees')")
-                
     img_coord = {
         'annual_nl': {
             'lft': 180,
@@ -56,26 +50,3 @@ def as_pixels(coordinates,
         (img_coord['lft'] + coordinates['lng']) * rates['y']
     )
     return np.round(pixels).astype(int)
-
-
-def load_image(coordinates,
-               source,
-               size):
-    source = expand_source(source)
-    coordinates = expand_coordinates(coordinates)
-    pixel_size = expand_size(size)
-    pixels = as_pixels(coordinates)
-    mapped_raster = np.load(source, mmap_mode='r')['arr_0']
-    img = cp.deepcopy(mapped_raster[
-        pixels[0]-pixel_size[0]:pixels[0]+pixel_size[0],
-        pixels[1]-pixel_size[1]:pixels[1]+pixel_size[1]
-    ])
-    del mapped_raster
-    return img
-
-
-def plot_image(coordinates,
-               source,
-               size):
-    img = load_image(coordinates, source, size)
-
