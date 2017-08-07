@@ -22,7 +22,7 @@ This tool is not a package or software, but rather a combination of different op
 
 ## Data
 
-* (Annual Nighttime Composites)[https://ngdc.noaa.gov/eog/dmsp/downloadV4composites.html]
+* [Annual Nighttime Composites](https://ngdc.noaa.gov/eog/dmsp/downloadV4composites.html)
 
 ## Further Reading
 
