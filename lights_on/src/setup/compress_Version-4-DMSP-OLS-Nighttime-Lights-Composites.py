@@ -1,4 +1,5 @@
 import os
+import gc
 import re
 import numpy as np
 from tifffile import TiffFile
@@ -11,6 +12,8 @@ def create_compressed_numpy_arrays(filelist):
             with tif.asarray() as arr:
                 np.savez_compressed(str(wd) + '/data/nightlights/year/' + str(year), arr)
                 del arr
+
+        gc.collect()
 
 if __name__ == "__main__":
     wd = os.getcwd()
