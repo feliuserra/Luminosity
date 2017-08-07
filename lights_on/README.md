@@ -20,6 +20,10 @@ This tool is not a package or software, but rather a combination of different op
 * On mac, the ip is not localhost but can be found as follows `docker-machine ip $(docker-machine active)`
 
 
+## Data
+
+* (Annual Nighttime Composites)[https://ngdc.noaa.gov/eog/dmsp/downloadV4composites.html]
+
 ## Further Reading
 
 ### On Luminosity in Economics

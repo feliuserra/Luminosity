@@ -6,3 +6,4 @@ scipy
 pandas
 tifffile
 matplotlib
+seaborn
