@@ -4,12 +4,24 @@ import numpy as np
 
 def expand_coordinates(coord_str):
     coordinates = {}
-    matches = re.findall(r'(?:lat|lng)[0-9.]{0,9}', coord_str)
+    matches = re.findall(r'((?:n|s)[0-9.]{0,9}|(?:e|w)[0-9.]{0,9})',
+                         coord_str,
+                         re.IGNORECASE)
     if not len(matches) == 2:
-        Exception('Invalid coordinates given')
+        raise Exception('Invalid coordinates given')
 
     for m in matches:
-        coordinates[m[:3]] = float(m[3:])
+        if re.match(r'(n|s)', m[0], re.IGNORECASE):
+            coordinates['lat'] = float(m[1:])
+            if re.match(r's', m[0], re.IGNORECASE):
+                coordinates['lat'] = - coordinates['lat']
+        elif re.match(r'(e|w)', m[0], re.IGNORECASE):
+            coordinates['lng'] = float(m[1:])
+            if re.match(r'w', m[0], re.IGNORECASE):
+                coordinates['lng'] = - coordinates['lng']
+        else:
+            raise Exception('Coordinate "{}" not understood'
+                            .format(m))
     return coordinates
 
 

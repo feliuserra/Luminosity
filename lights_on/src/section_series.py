@@ -1,7 +1,7 @@
 import copy
 import numpy as np
 from glob import glob
-from geo_helpers import as_pixels
+from helpers import as_pixels
 
 DEF_SRC_PATH = 'data/interim/' +\
     'Version_4_DMSP-OLS_Nighttime_Lights_Time_Returns/*.npz'
