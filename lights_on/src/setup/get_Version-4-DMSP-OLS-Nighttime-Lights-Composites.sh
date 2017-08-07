@@ -33,6 +33,7 @@ cd data/downloads/Version_4_DMSP-OLS_Nighttime_Lights_Time_Series
   # F182011\
   # F182012\
 for IMAGE in \
+  F101993\
   F182013
 do
   echo "Getting image $IMAGE"
