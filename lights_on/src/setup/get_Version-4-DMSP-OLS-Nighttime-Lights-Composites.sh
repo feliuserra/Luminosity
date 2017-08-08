@@ -1,6 +1,4 @@
 cd data/downloads/Version_4_DMSP-OLS_Nighttime_Lights_Time_Series
-  # F101992\
-  # F101993\
   # F101994\
   # F121994\
   # F121995\
@@ -31,9 +29,10 @@ cd data/downloads/Version_4_DMSP-OLS_Nighttime_Lights_Time_Series
   # F162009\
   # F182010\
   # F182011\
-  # F182012\
 for IMAGE in \
+  F101992\
   F101993\
+  F182012\
   F182013
 do
   echo "Getting image $IMAGE"
