@@ -70,7 +70,8 @@ def diff_light_grids(grids, logic='absolute'):
 
 
 def plot_light_grids(grids,
-                     titles=None,
+                     dates,
+                     names,
                      style='bone',
                      show_marker=False,
                      l=0):
@@ -87,8 +88,7 @@ def plot_light_grids(grids,
             axi.imshow(grids[l, i], cmap=style)
             axi.set_xticks([])
             axi.set_yticks([])
-            if titles is not None:
-                axi.set_title(titles[i])
+            axi.set_title(dates[i])
 
         else:
             fig.delaxes(axi)
@@ -98,7 +98,8 @@ def plot_light_grids(grids,
 
 
 def animate_light_grids(grids,
-                        titles=None,
+                        dates,
+                        names,
                         style='bone',
                         show_marker=False,
                         l=0):
@@ -107,13 +108,12 @@ def animate_light_grids(grids,
     img = ax.imshow(grids[l, i], cmap=style)
     ax.set_xticks([])
     ax.set_yticks([])
-    if titles is not None:
-        ax.title(titles[i])
+    ax.set_title(dates[i])
 
     def update(i):
         img.set_array(grids[l, i])
-        if titles is not None:
-            ax.set_title(titles[i])
+        if names is not None:
+            ax.set_title(dates[i])
 
     anim = FuncAnimation(fig, update, frames=np.arange(0, grids.shape[1]),
                          interval=500)
@@ -123,7 +123,7 @@ def animate_light_grids(grids,
 
 def aggregate_light_grids(grids,
                           dates,
-                          coordinates,
+                          names,
                           method='sum'):
     if method == 'sum':
         df = pd.DataFrame(grids.sum(axis=(2, 3)))
@@ -142,7 +142,7 @@ def aggregate_light_grids(grids,
 
     df = df.rename(columns={i: t for i, t in enumerate(dates)})
     df = df.transpose()
-    df = df.rename(columns={i: str(c) for i, c in enumerate(coordinates)})
+    df = df.rename(columns={i: str(c) for i, c in enumerate(names)})
     df.to_csv('../data/aggregate.csv')
     print('View and download the aggregate at `../data/aggregate.csv`')
     return df
