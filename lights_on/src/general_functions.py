@@ -53,6 +53,7 @@ def diff_light_grids(grids, logic='absolute'):
         return np.diff(grids, axis=1)
 
     if logic == 'growth':
+        grids = grids + 1  # Avoid 0's
         change = np.diff(grids, axis=1)
         growth = np.ndarray(change.shape)
         for i in range(change.shape[1]):
@@ -68,7 +69,6 @@ def plot_light_grids(grids,
                      show_marker=False):
     if grids.shape[1] == 1:
         for l in range(grids.shape[0]):
-            print(grids[l, 0])
             plt.figure(figsize=(20, 20))
             plt.imshow(grids[l, 0], cmap=style)
             plt.xticks([])
