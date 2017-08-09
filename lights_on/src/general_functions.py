@@ -45,3 +45,19 @@ def load_light_grids(coordinates,
         del mapped_raster
 
     return light_grids
+
+
+def diff_light_grids(grids, logic='absolute'):
+    print(grids.shape)
+    if logic == 'absolute':
+        return np.diff(grids, axis=1)
+
+    if logic == 'growth':
+        change = np.diff(grids, axis=1)
+        growth = np.ndarray(change.shape)
+        for i in range(change.shape[1]):
+            growth[:, i] = change[:, i] / grids[:, i]
+
+        return growth
+
+    raise Exception('Invalid logic')
