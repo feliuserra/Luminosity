@@ -2,8 +2,10 @@ import copy as cp
 import numpy as np
 import matplotlib.pyplot as plt
 import helpers
+import helper_functions as h
 import argparsers
 from matplotlib.axes import Axes
+from matplotlib.animation import FuncAnimation
 
 
 def load_light_grids(coordinates,
@@ -71,15 +73,7 @@ def plot_light_grids(grids,
                      show_marker=False,
                      l=0):
     figsize = (15, 20)
-    if grids.shape[1] < 6:
-        per_row = grids.shape[1]
-    elif grids.shape[1] < 12:
-        per_row = 3
-    elif grids.shape[1] < 20:
-        per_row = 4
-    else:
-        per_row = int(np.sqrt(grids.shape[1]))
-
+    per_row = h.get_plots_per_row(grids.shape[1])
     fig, ax = plt.subplots(int(np.ceil(grids.shape[1] / per_row)),
                            per_row,
                            figsize=figsize)
@@ -99,3 +93,27 @@ def plot_light_grids(grids,
 
     plt.tight_layout()
     return plt.show()
+
+
+def animate_light_grids(grids,
+                        titles=None,
+                        style='bone',
+                        show_marker=False,
+                        l=0):
+    i = 0
+    fig, ax = plt.subplots()
+    img = ax.imshow(grids[l, i], cmap=style)
+    ax.set_xticks([])
+    ax.set_yticks([])
+    if titles is not None:
+        ax.title(titles[i])
+
+    def update(i):
+        img.set_array(grids[l, i])
+        if titles is not None:
+            ax.set_title(titles[i])
+
+    anim = FuncAnimation(fig, update, frames=np.arange(0, grids.shape[1]),
+                         interval=500)
+    anim.save('../figures/animation.gif', dpi=80, writer='imagemagick')
+    print('View and download the animation at `../figures/animation.gif`')
