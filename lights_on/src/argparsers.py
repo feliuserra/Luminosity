@@ -36,6 +36,18 @@ def expand_source(src_str):
     return '{}/{}/{}/{}.npz'.format(root, 'nightlights', freq, name)
 
 
+def expand_dataset_source_path(dtst_str, root_path='../data'):
+    return '{}/{}/'\
+           .format(root_path, 'nightlights') + '{}/{}.npz'
+
+
+def expand_dates_string(dt_str):
+    if dt_str == 'all':
+        return ['1993', '2013']
+    else:
+        raise Exception('Invalid dates')
+
+
 def expand_size(size_str):
     pixel_size = (np.nan, np.nan)
     if not re.match(r'[0-9.]{1,11}px_[0-9.]{1,11}px', size_str):
