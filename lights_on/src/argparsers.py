@@ -44,8 +44,15 @@ def expand_dataset_source_path(dtst_str, root_path='../data'):
 def expand_dates_string(dt_str):
     if dt_str == 'all':
         return ['1993', '2013']
-    else:
-        raise Exception('Invalid dates')
+
+    if re.match(r'[0-9]{4}-[0-9]{4}', dt_str):
+        years = re.findall(r'[0-9]{4}', dt_str)
+        return [str(y) for y in range(years[0], years[1])]
+
+    if re.match(r'[0-9_]*', dt_str):
+        return re.findall(r'[0-9]{4}', dt_str)
+
+    raise Exception('Invalid dates')
 
 
 def expand_size(size_str):
