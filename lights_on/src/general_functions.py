@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import helpers
 import argparsers
+from matplotlib.axes import Axes
 
 
 def load_light_grids(coordinates,
@@ -82,6 +83,9 @@ def plot_light_grids(grids,
     fig, ax = plt.subplots(int(np.ceil(grids.shape[1] / per_row)),
                            per_row,
                            figsize=figsize)
+    if isinstance(ax, Axes):
+        ax = np.array([ax])
+
     for i, axi in enumerate(ax.flat):
         if i < grids.shape[1]:
             axi.imshow(grids[l, i], cmap=style)
