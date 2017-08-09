@@ -103,7 +103,9 @@ CMD ["jupyter", "notebook", "--no-browser"]
 # # Add local files as late as possible to avoid cache busting
 COPY start.sh /usr/local/bin/
 COPY start-singleuser.sh /usr/local/bin/
-COPY jupyter_notebook_config.py /etc/jupyter/
+COPY jupyter/jupyter_notebook_config.py /etc/jupyter/
+RUN mkdir -p $HOME/.jupyter/custom
+COPY jupyter/custom.css $HOME/.jupyter/custom/custom.css
 RUN chown -R $NB_USER:users /etc/jupyter/
 
 # # Switch back to econ_user to avoid accidental container runs as root
