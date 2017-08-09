@@ -1,5 +1,6 @@
 import copy as cp
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 import helpers
 import helper_functions as h
@@ -26,9 +27,9 @@ def load_light_grids(coordinates,
     # TODO: specify necessity of decimal coordinates
     locs = [helpers.as_pixels(c, coordtype='decimals') for c in coordinates]
     light_grids = np.empty((len(coordinates),
-                           len(sources),
-                           size[0],
-                           size[1]))
+                            len(sources),
+                            size[0],
+                            size[1]))
     for f_i, f in enumerate(sources):
         if verbose is True:
             print('Loading file {}'.format(f))
@@ -48,7 +49,7 @@ def load_light_grids(coordinates,
 
         del mapped_raster
 
-    return light_grids
+    return (light_grids, dates, coordinates)
 
 
 def diff_light_grids(grids, logic='absolute'):
@@ -117,3 +118,30 @@ def animate_light_grids(grids,
                          interval=500)
     anim.save('../figures/animation.gif', dpi=80, writer='imagemagick')
     print('View and download the animation at `../figures/animation.gif`')
+
+
+def aggregate_light_grids(grids,
+                          dates,
+                          coordinates,
+                          method='sum'):
+    if method == 'sum':
+        df = pd.DataFrame(grids.sum(axis=(2, 3)))
+
+    if method in ['mean', 'average', 'avg']:
+        df = pd.DataFrame(grids.mean(axis=(2, 3)))
+
+    if method in ['standard_deviation', 'std', 'std_dev']:
+        df = pd.DataFrame(grids.std(axis=(2, 3)))
+
+    if method in ['variance', 'var']:
+        df = pd.DataFrame(grids.var(axis=(2, 3)))
+
+    if df is None:
+        raise Exception('Invalid method')
+
+    df = df.rename(columns={i: t for i, t in enumerate(dates)})
+    df = df.transpose()
+    df = df.rename(columns={i: str(c) for i, c in enumerate(coordinates)})
+    df.to_csv('../data/aggregate.csv')
+    print('View and download the aggregate at `../data/aggregate.csv`')
+    return df
