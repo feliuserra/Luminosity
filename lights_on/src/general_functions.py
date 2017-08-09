@@ -1,5 +1,6 @@
 import copy as cp
 import numpy as np
+import matplotlib.pyplot as plt
 import helpers
 import argparsers
 
@@ -48,7 +49,6 @@ def load_light_grids(coordinates,
 
 
 def diff_light_grids(grids, logic='absolute'):
-    print(grids.shape)
     if logic == 'absolute':
         return np.diff(grids, axis=1)
 
@@ -61,3 +61,22 @@ def diff_light_grids(grids, logic='absolute'):
         return growth
 
     raise Exception('Invalid logic')
+
+
+def plot_light_grids(grids,
+                     style='bone',
+                     show_marker=False):
+    if grids.shape[1] == 1:
+        for l in range(grids.shape[0]):
+            print(grids[l, 0])
+            plt.figure(figsize=(20, 20))
+            plt.imshow(grids[l, 0], cmap=style)
+            plt.xticks([])
+            plt.yticks([])
+            if show_marker is True:
+                plt.plot(grids.shape[0] / 2,
+                         grids.shape[1] / 2,
+                         'co',
+                         mew=8,
+                         ms=14)
+            plt.show()
