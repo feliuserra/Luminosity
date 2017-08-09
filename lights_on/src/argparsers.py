@@ -4,7 +4,8 @@ import numpy as np
 
 def expand_coordinates(coord_str):
     coordinates = {}
-    matches = re.findall(r'((?:n|s)[0-9.]{0,9}|(?:e|w)[0-9.]{0,9})',
+    regex = r'((?:n|s)[0-9.]{1,9}|(?:e|w)[0-9.]{1,9})'
+    matches = re.findall(regex,
                          coord_str,
                          re.IGNORECASE)
     if not len(matches) == 2:
@@ -23,6 +24,14 @@ def expand_coordinates(coord_str):
             raise Exception('Coordinate "{}" not understood'
                             .format(m))
     return coordinates
+
+
+def expand_names(coord_str):
+    match = re.match(r'[a-zA-Z-., ]*(?=_)', coord_str)
+    if match is not None:
+        return match.group(0)
+    else:
+        return coord_str
 
 
 def expand_source(src_str):

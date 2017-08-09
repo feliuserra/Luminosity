@@ -22,6 +22,7 @@ def load_light_grids(coordinates,
     for date in dates:
         sources.append(source_path.format(frequency, date))
 
+    names = [argparsers.expand_names(c) for c in coordinates]
     coordinates = [argparsers.expand_coordinates(c) for c in coordinates]
     size = argparsers.expand_size(size)
     # TODO: specify necessity of decimal coordinates
@@ -49,7 +50,7 @@ def load_light_grids(coordinates,
 
         del mapped_raster
 
-    return (light_grids, dates, coordinates)
+    return (light_grids, dates, names)
 
 
 def diff_light_grids(grids, logic='absolute'):
