@@ -1,8 +1,29 @@
-.notebook_app {
+body {
   background-image: url('http://naturalearth.springercarto.com/ne3_data/8192/elev_bump_8k.jpg');
   background-size: cover;
 }
 
-#notebook-container {
-  background-color: rgba(255, 255, 255, .75);
+body.notebook_app {
+  background-image: none;
+}
+
+#tab_content {
+  background: rgba(255, 255, 255, .85);
+  padding: 10px;
+  margin-top: 20px;
+}
+
+#ipython_notebook img{                                                                                        
+  display:block;
+  background: url(logo.png) no-repeat;
+  background-size: contain;
+  width: 233px;
+  height: 33px;
+  padding-left: 233px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a.clusters_tab_link {
+  display: none !important;
 }

@@ -104,8 +104,8 @@ CMD ["jupyter", "notebook", "--no-browser"]
 COPY start.sh /usr/local/bin/
 COPY start-singleuser.sh /usr/local/bin/
 COPY jupyter/jupyter_notebook_config.py /etc/jupyter/
-RUN mkdir -p $HOME/.jupyter/custom
-COPY jupyter/custom.css $HOME/.jupyter/custom/custom.css
+RUN mkdir -p $HOME/.jupyter
+COPY jupyter $HOME/.jupyter/custom
 RUN chown -R $NB_USER:users /etc/jupyter/
 
 # # Switch back to econ_user to avoid accidental container runs as root
