@@ -65,18 +65,33 @@ def diff_light_grids(grids, logic='absolute'):
 
 
 def plot_light_grids(grids,
+                     titles=None,
                      style='bone',
-                     show_marker=False):
-    if grids.shape[1] == 1:
-        for l in range(grids.shape[0]):
-            plt.figure(figsize=(20, 20))
-            plt.imshow(grids[l, 0], cmap=style)
-            plt.xticks([])
-            plt.yticks([])
-            if show_marker is True:
-                plt.plot(grids.shape[0] / 2,
-                         grids.shape[1] / 2,
-                         'co',
-                         mew=8,
-                         ms=14)
-            plt.show()
+                     show_marker=False,
+                     l=0):
+    figsize = (15, 20)
+    if grids.shape[1] < 6:
+        per_row = grids.shape[1]
+    elif grids.shape[1] < 12:
+        per_row = 3
+    elif grids.shape[1] < 20:
+        per_row = 4
+    else:
+        per_row = int(np.sqrt(grids.shape[1]))
+
+    fig, ax = plt.subplots(int(np.ceil(grids.shape[1] / per_row)),
+                           per_row,
+                           figsize=figsize)
+    for i, axi in enumerate(ax.flat):
+        if i < grids.shape[1]:
+            axi.imshow(grids[l, i], cmap=style)
+            axi.set_xticks([])
+            axi.set_yticks([])
+            if titles is not None:
+                axi.set_title(titles[i])
+
+        else:
+            fig.delaxes(axi)
+
+    plt.tight_layout()
+    return plt.show()

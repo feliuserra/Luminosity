@@ -18,6 +18,7 @@ This tool is not a package or software, but rather a combination of different op
 ### Notes
 
 * On mac, the ip is not localhost but can be found as follows `docker-machine ip $(docker-machine active)`
+* If docker building errors with `No space left on device`, try: `docker rm $(docker ps -a -q) && docker rmi -f $(docker images -f dangling=true -q)`
 
 
 ## Data
