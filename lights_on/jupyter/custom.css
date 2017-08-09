@@ -1,0 +1,8 @@
+.notebook_app {
+  background-image: url('http://naturalearth.springercarto.com/ne3_data/8192/elev_bump_8k.jpg');
+  background-size: cover;
+}
+
+#notebook-container {
+  background-color: rgba(255, 255, 255, .75);
+}
