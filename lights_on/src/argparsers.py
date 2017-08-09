@@ -54,7 +54,14 @@ def expand_size(size_str):
         Exception('Invalid size given')
 
     if re.match(r'[0-9.]{0,9}px_[0-9.]{0,9}px', size_str):
-        values = [int(v) for v in re.findall(r'[0-9.]{1,9}', size_str)]
+        values = []
+        for value in re.findall(r'[0-9.]{1,9}', size_str):
+            value = int(value)
+            if value % 2 != 0:
+                raise Exception('Invalid size (only even numbers are allowed)')
+
+            values.append(value)
+
         pixel_size = values
 
     return tuple(pixel_size)
