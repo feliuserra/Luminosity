@@ -1,13 +1,15 @@
-[
-  'Dockerfile',
-  'README.md',
-  'start-singleuser.sh',
-  'start.sh',
-  'requirements.txt',
-  'src',
-  'jupyter'
-].forEach(function(s){
-  $('.list_item:contains("' + s + '")').hide()
+// Hide the files in the notebook directory view that are unimportant
+$('#notebook_list').bind("DOMSubtreeModified", function(){
+  [
+    'Dockerfile',
+    'README.md',
+    'start-singleuser.sh',
+    'start.sh',
+    'requirements.txt',
+    'src',
+    'jupyter'
+  ].forEach(function(s){
+    $('.list_item:contains("' + s + '")').hide()
 })
 
 $('#notebook_toolbar').clone().insertBefore('#notebook_toolbar').removeClass('list_toolbar').empty()

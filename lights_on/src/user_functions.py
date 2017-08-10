@@ -29,15 +29,15 @@ def plot_light_grid(coordinates,
                        style=style, show_marker=show_marker)
 
 
-def animate_light_movement(coordinates,
-                           date,
-                           dataset='nightlight_grids',
-                           size='year',
-                           frequency='year',
-                           style='bone',
-                           fill_empty=False,
-                           verbose=False,
-                           show_marker=False):
+def animate_light_series(coordinates,
+                         date,
+                         dataset='nightlight_grids',
+                         size='year',
+                         frequency='year',
+                         style='bone',
+                         fill_empty=False,
+                         verbose=False,
+                         show_marker=False):
     lights, dates, names = g.load_light_grids([coordinates],
                                               dataset=dataset,
                                               dates=date,
@@ -48,12 +48,32 @@ def animate_light_movement(coordinates,
                           style=style, show_marker=show_marker)
 
 
+def plot_light_series(coordinates,
+                      dates,
+                      dataset='nightlight_grids',
+                      size='year',
+                      frequency='year',
+                      style='bone',
+                      fill_empty=False,
+                      verbose=False,
+                      show_marker=False,
+                      method='absolute'):
+    lights, dates, names = g.load_light_grids([coordinates],
+                                              dataset=dataset,
+                                              dates=dates,
+                                              frequency=frequency,
+                                              fill_empty=fill_empty,
+                                              verbose=verbose)
+    g.plot_light_grids(lights, dates, names,
+                       style=style, show_marker=show_marker)
+
+
 def plot_light_diff(coordinates,
                     dates,
                     dataset='nightlight_grids',
                     size='year',
                     frequency='year',
-                    style='nipy_spectral',
+                    style='RdBu',
                     fill_empty=False,
                     verbose=False,
                     show_marker=False,
@@ -67,7 +87,13 @@ def plot_light_diff(coordinates,
     lights = g.diff_light_grids(lights,
                                 method=method)
     # TODO: correct name and date index
-    g.plot_light_grids(lights, dates, names,
+    g.plot_light_grids(lights,
+                       [
+                           '{}-{}'.format(dates[i], d)
+                           for i, d in
+                           enumerate(dates[1:])
+                       ],
+                       names,
                        style=style, show_marker=show_marker)
 
 

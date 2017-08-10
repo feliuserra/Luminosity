@@ -62,7 +62,7 @@ def diff_light_grids(grids, method='absolute'):
         change = np.diff(grids, axis=1)
         growth = np.ndarray(change.shape)
         for i in range(change.shape[1]):
-            growth[:, i] = change[:, i] / grids[:, i]
+            growth[:, i] = change[:, i] / grids[:, i] / 100
 
         return growth
 
@@ -75,7 +75,23 @@ def plot_light_grids(grids,
                      style='bone',
                      show_marker=False,
                      l=0):
-    figsize = (15, 20)
+    if grids.min() == 0 and grids.max() <= 63:
+        col_scale = {
+            'min': 0,
+            'max': 63
+        }
+    # elif grids.min() <= 0 and abs(grids).max() <= 1:
+    #     col_scale = {
+    #         'min': -1,
+    #         'max': 1
+    #         }
+    else:
+        col_scale = {
+            'min': -abs(grids).max(),
+            'max': abs(grids).max()
+        }
+
+    figsize = (15, 15)
     per_row = h.get_plots_per_row(grids.shape[1])
     fig, ax = plt.subplots(int(np.ceil(grids.shape[1] / per_row)),
                            per_row,
@@ -84,11 +100,13 @@ def plot_light_grids(grids,
         ax = np.array([ax])
 
     for i, axi in enumerate(ax.flat):
-        if i < grids.shape[1]:
-            axi.imshow(grids[l, i], cmap=style)
+        if i <= grids.shape[1]:
+            axi.imshow(grids[l, i], cmap=style,
+                       vmin=col_scale['min'],
+                       vmax=col_scale['max'])
             axi.set_xticks([])
             axi.set_yticks([])
-            axi.set_title('{} in {}'.format(names[i], dates[i]))
+            axi.set_title('{}: {}'.format(names[l], dates[i]))
 
         else:
             fig.delaxes(axi)

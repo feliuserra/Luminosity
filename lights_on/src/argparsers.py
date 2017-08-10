@@ -56,7 +56,7 @@ def expand_dates_string(dt_str):
 
     if re.match(r'[0-9]{4}-[0-9]{4}', dt_str):
         years = re.findall(r'[0-9]{4}', dt_str)
-        return [str(y) for y in range(years[0], years[1])]
+        return [str(y) for y in range(int(years[0]), int(years[1]) + 1)]
 
     if re.match(r'[0-9_]*', dt_str):
         return re.findall(r'[0-9]{4}', dt_str)
