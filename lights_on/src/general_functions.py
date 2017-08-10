@@ -53,11 +53,11 @@ def load_light_grids(coordinates,
     return (light_grids, dates, names)
 
 
-def diff_light_grids(grids, logic='absolute'):
-    if logic == 'absolute':
+def diff_light_grids(grids, method='absolute'):
+    if method == 'absolute':
         return np.diff(grids, axis=1)
 
-    if logic == 'growth':
+    if method == 'growth':
         grids = grids + 1  # Avoid 0's
         change = np.diff(grids, axis=1)
         growth = np.ndarray(change.shape)
@@ -66,7 +66,7 @@ def diff_light_grids(grids, logic='absolute'):
 
         return growth
 
-    raise Exception('Invalid logic')
+    raise Exception('Invalid method')
 
 
 def plot_light_grids(grids,
@@ -88,7 +88,7 @@ def plot_light_grids(grids,
             axi.imshow(grids[l, i], cmap=style)
             axi.set_xticks([])
             axi.set_yticks([])
-            axi.set_title(dates[i])
+            axi.set_title('{} in {}'.format(names[i], dates[i]))
 
         else:
             fig.delaxes(axi)
@@ -104,7 +104,7 @@ def animate_light_grids(grids,
                         show_marker=False,
                         l=0):
     i = 0
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(15, 20))
     img = ax.imshow(grids[l, i], cmap=style)
     ax.set_xticks([])
     ax.set_yticks([])
