@@ -10,8 +10,8 @@ from matplotlib.animation import FuncAnimation
 
 
 def load_light_grids(coordinates,
+                     dates,
                      dataset='nightlight_grids',
-                     dates='all',
                      size='250px_250px',
                      frequency='year',
                      fill_empty=False,
@@ -146,3 +146,13 @@ def aggregate_light_grids(grids,
     df.to_csv('../data/aggregate.csv')
     print('View and download the aggregate at `../data/aggregate.csv`')
     return df
+
+
+def plot_aggregated_light_grids(df):
+    plt.plot(df.values)
+    try:
+        plt.xticks(df.index)
+    except TypeError:
+        plt.xticks([i for i in range(df.shape[0])])
+
+    plt.show()
