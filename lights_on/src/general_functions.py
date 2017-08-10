@@ -161,8 +161,6 @@ def aggregate_light_grids(grids,
     df = df.rename(columns={i: t for i, t in enumerate(dates)})
     df = df.transpose()
     df = df.rename(columns={i: str(c) for i, c in enumerate(names)})
-    df.to_csv('../data/aggregate.csv')
-    print('View and download the aggregate at `../data/aggregate.csv`')
     return df
 
 

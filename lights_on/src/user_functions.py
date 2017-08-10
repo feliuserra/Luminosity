@@ -141,16 +141,16 @@ def animate_light_growth(coordinates, dates, **kw_args):
     animate_light_diff(coordinates, dates, **kw_args)
 
 
-def plot_aggregated_light_series(coordinates,
-                                 date,
-                                 dataset='nightlight_grids',
-                                 size='year',
-                                 frequency='year',
-                                 style='bone',
-                                 fill_empty=False,
-                                 verbose=False,
-                                 show_marker=False,
-                                 method='sum'):
+def plot_light_series_aggregate(coordinates,
+                                date,
+                                dataset='nightlight_grids',
+                                size='year',
+                                frequency='year',
+                                style='bone',
+                                fill_empty=False,
+                                verbose=False,
+                                show_marker=False,
+                                method='sum'):
     lights, dates, names = g.load_light_grids([coordinates],
                                               dataset=dataset,
                                               dates=date,
@@ -161,27 +161,27 @@ def plot_aggregated_light_series(coordinates,
     g.plot_aggregated_light_grids(agg_df)
 
 
-def plot_aggregated_light_sum(coordinates, date, **kw_args):
+def plot_light_series_sum(coordinates, date, **kw_args):
     kw_args['method'] = 'sum'
-    plot_aggregated_light_series(coordinates, date, **kw_args)
+    plot_light_series_aggregate(coordinates, date, **kw_args)
 
 
-def plot_aggregated_light_mean(coordinates, date, **kw_args):
+def plot_light_series_mean(coordinates, date, **kw_args):
     kw_args['method'] = 'mean'
-    plot_aggregated_light_series(coordinates, date, **kw_args)
+    plot_light_series_aggregate(coordinates, date, **kw_args)
 
 
-def plot_aggregated_light_series_diff(coordinates,
-                                      dates,
-                                      dataset='nightlight_grids',
-                                      size='year',
-                                      frequency='year',
-                                      style='bone',
-                                      fill_empty=False,
-                                      verbose=False,
-                                      show_marker=False,
-                                      agg_method='sum',
-                                      diff_method='absolute'):
+def plot_light_series_diff(coordinates,
+                           dates,
+                           dataset='nightlight_grids',
+                           size='year',
+                           frequency='year',
+                           style='bone',
+                           fill_empty=False,
+                           verbose=False,
+                           show_marker=False,
+                           agg_method='sum',
+                           diff_method='absolute'):
     lights, dates, names = g.load_light_grids([coordinates],
                                               dataset=dataset,
                                               dates=dates,
@@ -197,22 +197,51 @@ def plot_aggregated_light_series_diff(coordinates,
                                          enumerate(dates[1:])
                                       ],
                                      names)
-    g.plot_aggregated_light_grids(agg_df)
+    g.plot_light_series_grids(agg_df)
 
 
 def plot_light_series_mean_change(coordinates, dates, **kw_args):
     kw_args['diff_method'] = 'absolute'
     kw_args['agg_method'] = 'mean'
-    plot_aggregated_light_series_diff(coordinates, dates, **kw_args)
+    plot_light_series_diff(coordinates, dates, **kw_args)
 
 
 def plot_light_series_sum_change(coordinates, dates, **kw_args):
     kw_args['diff_method'] = 'absolute'
     kw_args['agg_method'] = 'sum'
-    plot_aggregated_light_series_diff(coordinates, dates, **kw_args)
+    plot_light_series_diff(coordinates, dates, **kw_args)
 
 
 def plot_light_series_sum_growth(coordinates, dates, **kw_args):
     kw_args['diff_method'] = 'absolute'
     kw_args['agg_method'] = 'sum'
-    plot_aggregated_light_series_diff(coordinates, dates, **kw_args)
+    plot_light_series_diff(coordinates, dates, **kw_args)
+
+
+def aggregate_light_series(coordinates,
+                           dates,
+                           dataset='nightlight_grids',
+                           size='year',
+                           frequency='year',
+                           style='bone',
+                           fill_empty=False,
+                           verbose=False,
+                           show_marker=False,
+                           method='sum'):
+    lights, dates, names = g.load_light_grids([coordinates],
+                                              dataset=dataset,
+                                              dates=dates,
+                                              frequency=frequency,
+                                              fill_empty=fill_empty,
+                                              verbose=verbose)
+    agg_df = g.aggregate_light_grids(lights,
+                                     dates,
+                                     names)
+    agg_df.to_csv('../data/aggregate.csv')
+    print('View and download the aggregate at `../data/aggregate.csv`')
+    return agg_df
+
+
+def sum_light_series(coordinates, dates, **kw_args):
+    kw_args['method'] = 'sum'
+    return aggregate_light_series(coordinates, dates, **kw_args)
