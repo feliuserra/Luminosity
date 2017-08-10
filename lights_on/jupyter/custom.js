@@ -10,7 +10,8 @@ $('#notebook_list').bind("DOMSubtreeModified", function(){
     'jupyter'
   ].forEach(function(s){
     $('.list_item:contains("' + s + '")').hide()
-}))
+  })
+});
 
 $('#notebook_toolbar').clone().insertBefore('#notebook_toolbar').removeClass('list_toolbar').empty()
   .append(
