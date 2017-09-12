@@ -245,3 +245,45 @@ def aggregate_light_series(coordinates,
 def sum_light_series(coordinates, dates, **kw_args):
     kw_args['method'] = 'sum'
     return aggregate_light_series(coordinates, dates, **kw_args)
+
+
+def mean_light_series(coordinates, dates, **kw_args):
+    kw_args['method'] = 'mean'
+    return aggregate_light_series(coordinates, dates, **kw_args)
+
+
+def aggregate_light_series_from_csv(csvfilename,
+                                    dates,
+                                    dataset='nightligh_grids',
+                                    size='year',
+                                    frequency='year',
+                                    style='bone',
+                                    fill_empty=False,
+                                    verbose=False,
+                                    show_marker=False,
+                                    method='sum'):
+    coordinates = g.open_coordinate_csv('../data/' + csvfilename)
+    lights, dates, names = g.load_light_grids(coordinates,
+                                              dataset=dataset,
+                                              dates=dates,
+                                              frequency=frequency,
+                                              fill_empty=fill_empty,
+                                              verbose=verbose)
+    agg_df = g.aggregate_light_grids(lights,
+                                     dates,
+                                     names)
+    agg_df.to_csv('../data/aggregate.csv')
+    print('View and download the aggregate at `../data/aggregate.csv`')
+    return agg_df
+
+
+def sum_light_series_from_csv(coordinates, dates, **kw_args):
+    kw_args['method'] = 'sum'
+    return aggregate_light_series_from_csv(coordinates, dates, **kw_args)
+
+
+def mean_light_series_from(coordinates, dates, **kw_args):
+    kw_args['method'] = 'mean'
+    return aggregate_light_series_from_csv(coordinates, dates, **kw_args)
+
+
