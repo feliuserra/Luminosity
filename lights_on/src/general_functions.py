@@ -10,12 +10,12 @@ from matplotlib.animation import FuncAnimation
 
 
 def load_light_grids(coordinates,
-        dates,
-        dataset='nightlight_grids',
-        size='250px_250px',
-        frequency='year',
-        fill_empty=False,
-        verbose=False):
+                     dates,
+                     dataset='nightlight_grids',
+                     size='250px_250px',
+                     frequency='year',
+                     fill_empty=False,
+                     verbose=False):
     source_path = argparsers.expand_dataset_source_path(dataset)
     dates = argparsers.expand_dates_string(dates)
     sources = []
@@ -28,9 +28,9 @@ def load_light_grids(coordinates,
     # TODO: specify necessity of decimal coordinates
     locs = [helpers.as_pixels(c, coordtype='decimals') for c in coordinates]
     light_grids = np.empty((len(coordinates),
-        len(sources),
-        size[0],
-        size[1]))
+                            len(sources),
+                            size[0],
+                            size[1]))
     for f_i, f in enumerate(sources):
         if verbose is True:
             print('Loading file {}'.format(f))
@@ -60,7 +60,7 @@ def open_coordinate_csv(path):
     for i, row in df.iterrows():
         coordinates.append('{}_{}_{}'
                            .format(row['name'],
-                                   row['lat'], 
+                                   row['lat'],
                                    row['lng']))
 
     return coordinates
@@ -83,11 +83,11 @@ def diff_light_grids(grids, method='absolute'):
 
 
 def plot_light_grids(grids,
-        dates,
-        names,
-        style='bone',
-        show_marker=False,
-        l=0):
+                     dates,
+                     names,
+                     style='bone',
+                     show_marker=False,
+                     l=0):
     if grids.min() == 0 and grids.max() <= 63:
         col_scale = {
                 'min': 0,
@@ -107,16 +107,16 @@ def plot_light_grids(grids,
     figsize = (15, 15)
     per_row = h.get_plots_per_row(grids.shape[1])
     fig, ax = plt.subplots(int(np.ceil(grids.shape[1] / per_row)),
-            per_row,
-            figsize=figsize)
+                           per_row,
+                           figsize=figsize)
     if isinstance(ax, Axes):
         ax = np.array([ax])
 
     for i, axi in enumerate(ax.flat):
         if i <= grids.shape[1]:
             axi.imshow(grids[l, i], cmap=style,
-                    vmin=col_scale['min'],
-                    vmax=col_scale['max'])
+                       vmin=col_scale['min'],
+                       vmax=col_scale['max'])
             axi.set_xticks([])
             axi.set_yticks([])
             axi.set_title('{}: {}'.format(names[l], dates[i]))
@@ -129,11 +129,11 @@ def plot_light_grids(grids,
 
 
 def animate_light_grids(grids,
-        dates,
-        names,
-        style='bone',
-        show_marker=False,
-        l=0):
+                        dates,
+                        names,
+                        style='bone',
+                        show_marker=False,
+                        l=0):
     i = 0
     fig, ax = plt.subplots(figsize=(15, 20))
     img = ax.imshow(grids[l, i], cmap=style)
@@ -147,15 +147,15 @@ def animate_light_grids(grids,
             ax.set_title(dates[i])
 
     anim = FuncAnimation(fig, update, frames=np.arange(0, grids.shape[1]),
-            interval=500)
+                         interval=500)
     anim.save('../figures/animation.gif', dpi=80, writer='imagemagick')
     print('View and download the animation at `../figures/animation.gif`')
 
 
 def aggregate_light_grids(grids,
-        dates,
-        names,
-        method='sum'):
+                          dates,
+                          names,
+                          method='sum'):
     if method == 'sum':
         df = pd.DataFrame(grids.sum(axis=(2, 3)))
 

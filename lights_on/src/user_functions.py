@@ -271,7 +271,8 @@ def aggregate_light_series_from_csv(csvfilename,
                                               verbose=verbose)
     agg_df = g.aggregate_light_grids(lights,
                                      dates,
-                                     names)
+                                     names,
+                                     method=method)
     agg_df.to_csv('../data/aggregate.csv')
     print('View and download the aggregate at `../data/aggregate.csv`')
     return agg_df
@@ -282,8 +283,6 @@ def sum_light_series_from_csv(coordinates, dates, **kw_args):
     return aggregate_light_series_from_csv(coordinates, dates, **kw_args)
 
 
-def mean_light_series_from(coordinates, dates, **kw_args):
+def mean_light_series_from_csv(coordinates, dates, **kw_args):
     kw_args['method'] = 'mean'
     return aggregate_light_series_from_csv(coordinates, dates, **kw_args)
-
-
